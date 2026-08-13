@@ -1,0 +1,13 @@
+{
+  "title": "页面介绍",
+  "icon": "PanelsTopLeft",
+  "pages": [
+    "home",
+    "settings",
+    "shortcuts",
+    "prompts",
+    "speech-recognition",
+    "text-assist",
+    "about"
+  ]
+}

@@ -4,11 +4,90 @@ description: EasyChat 文档入口
 icon: Book
 ---
 
-欢迎来到 EasyChat 文档。你可以从这里了解项目结构和配置流程。
+欢迎使用 EasyChat。  EasyChat 可以将截图、输入框、选中文本和系统音频中的内容进行识别、翻译或 AI 辅助处理。  
 
-## 接下来
+如果你是第一次使用，建议按下面的顺序完成配置：先安装软件，再配置一个可用的翻译源和快捷键，最后根据需要下载 OCR 或 ASR 模型。
+
+<Callout type="info" title="开始前须知">
+  EasyChat 当前支持 Windows。AI 大模型、机器翻译和部分语音服务需要你自行申请 API Key；EasyChat 不内置第三方服务的密钥。
+</Callout>
+
+## 推荐上手路径
+import { Download, Rocket, LayoutGrid } from 'lucide-react';
 
 <Cards>
-  <Card title="快速开始" href="/zh/docs/quickstart" />
-  <Card title="下载安装" href="/zh/docs/installation" />
+  <Card icon={<Download />} title="下载安装" description="获取最新版本并完成安装。" href="/zh/docs/installation" />
+  <Card icon={<Rocket />} title="快速开始" description="按照四个步骤完成首次配置。" href="/zh/docs/quickstart" />
+  <Card icon={<LayoutGrid />} title="翻译源介绍" description="了解 AI 大模型和机器翻译的区别。" href="/zh/docs/engine" />
 </Cards>
+
+## 第一次使用要做什么
+
+### 1. 安装并启动
+
+从 [下载安装](./installation) 页面获取安装包或便携版。启动后进入主页，主页会显示翻译引擎和快捷键是否已经配置完成。
+
+### 2. 配置翻译源
+
+打开侧边栏的 `设置`，进入 `翻译`：
+
+- 需要纠错、润色、总结、解释和词典详情时，配置一个 [AI 大模型](./engine)。
+- 只需要快速进行普通句子翻译时，可以配置百度、腾讯、Google 或 DeepL 等机器翻译服务。
+
+配置完成后，使用服务的“测试连接”确认 API 地址、模型和密钥可用。
+
+<Callout type="info" title="AI 大模型和机器翻译">
+  - AI 大模型和机器翻译的区别请参考 [翻译源介绍](./engine) 页面。  
+  - **我们强烈建议使用 `AI 大模型` 作为主要翻译源以完整体验 EasyChat 的功能。**
+</Callout>
+
+### 3. 添加一个快捷键
+
+打开 `快捷键` 页面，添加一个常用功能。推荐先配置：
+
+| 功能 | 用途 |
+| --- | --- |
+| 截图翻译 | 翻译网页、视频、图片或其他无法复制的文字。 |
+| 输入翻译 | 在聊天软件、浏览器等输入位置直接翻译并写回文本。 |
+| 快捷翻译 | 打开窗口输入一段文字并查看翻译结果。 |
+
+快捷键冲突时，请换用未被 Windows、输入法或其他应用占用的组合键。
+
+### 4. 按功能下载模型
+
+- 使用截图翻译或截图 OCR：在 `设置 > 截图` 下载对应语言的 OCR 模型。
+  参考 [截图翻译](./feature/screenshot-translation) 和 [截图取词](./feature/image-ocr) 页面。  
+- 使用实时语音识别：在 `设置 > 语音` 下载或导入 ASR 模型。  
+  参考 [实时语音识别](./feature/asr) 页面。
+
+## 第一次成功使用
+
+完成基础配置后，可以先尝试截图翻译：
+
+1. 按下你在 `快捷键` 页面配置的截图翻译快捷键。
+2. 框选一段文字区域。
+3. 等待 OCR 和翻译完成，在结果窗口查看译文。
+
+如果文字可以直接复制，也可以使用快捷翻译或划词工具栏。想处理系统声音时，进入 [实时语音识别](./pages/speech-recognition) 页面开始识别。
+
+## 按你的需求继续了解
+
+<Cards>
+  <Card title="页面介绍" description="了解侧边栏每个页面的用途。" href="/zh/docs/pages" />
+  <Card title="功能介绍" description="查看截图、输入、划词和语音等功能的具体用法。" href="/zh/docs/feature" />
+  <Card title="设置说明" description="逐项了解所有设置选项的作用。" href="/zh/docs/settings" />
+</Cards>
+
+## 常见问题
+
+<Callout type="warning" title="没有翻译结果">
+  请先确认已在 `设置 > 翻译` 中配置可用服务，并检查 API Key、模型名称和网络代理。AI 大模型和机器翻译都依赖第三方服务的网络连接。
+</Callout>
+
+<Callout type="warning" title="截图识别不到文字">
+  请确认已经下载与文字语言对应的 OCR 模型，并尽量框选清晰、对比度较高的文字区域。
+</Callout>
+
+<Callout type="warning" title="快捷键没有反应">
+  请检查快捷键条目是否启用，并确认组合键没有被其他软件占用。部分安全软件也可能限制全局快捷键或模拟输入。
+</Callout>
