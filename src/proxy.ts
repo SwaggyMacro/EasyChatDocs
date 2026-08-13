@@ -1,16 +1,6 @@
-import { NextFetchEvent, NextRequest, NextResponse } from 'next/server';
-import { isMarkdownPreferred, rewritePath } from 'fumadocs-core/negotiation';
-import { createI18nMiddleware } from 'fumadocs-core/i18n/middleware';
+import { NextRequest, NextResponse } from 'next/server';
 
-import {
-  docsContentRoute,
-  docsRoute,
-  i18n,
-  languageCookieName,
-  type SiteLanguage,
-} from '@/lib/shared';
-
-const handleI18n = createI18nMiddleware({ ...i18n, cookieName: languageCookieName });
+import { i18n, languageCookieName, type SiteLanguage } from '@/lib/shared';
 const languageCookieMaxAge = 60 * 60 * 24 * 365;
 
 function getRequestLanguage(request: NextRequest): SiteLanguage {
@@ -45,42 +35,10 @@ function redirectToPreferredLanguage(request: NextRequest) {
   return response;
 }
 
-const { rewrite: rewriteDocs } = rewritePath(
-  `${docsRoute}{/*path}`,
-  `${docsContentRoute}{/*path}/content.md`,
-);
-const { rewrite: rewriteSuffix } = rewritePath(
-  `${docsRoute}{/*path}.md`,
-  `${docsContentRoute}{/*path}/content.md`,
-);
-
-export async function proxy(request: NextRequest, event: NextFetchEvent) {
+export function proxy(request: NextRequest) {
   const firstPathSegment = request.nextUrl.pathname.split('/')[1];
   if (!i18n.languages.includes(firstPathSegment as SiteLanguage)) {
     return redirectToPreferredLanguage(request);
-  }
-
-  const i18nResponse = await handleI18n(request, event);
-  if (
-    i18nResponse &&
-    (i18nResponse.headers.has('location') || i18nResponse.headers.has('x-middleware-rewrite'))
-  ) {
-    return i18nResponse;
-  }
-
-  const result = rewriteSuffix(request.nextUrl.pathname);
-  if (result) {
-    return NextResponse.rewrite(new URL(result, request.nextUrl));
-  }
-
-  if (isMarkdownPreferred(request)) {
-    const result = rewriteDocs(request.nextUrl.pathname);
-
-    if (result) {
-      return NextResponse.rewrite(new URL(result, request.nextUrl), {
-        headers: { Vary: 'Accept' },
-      });
-    }
   }
 
   return NextResponse.next();
