@@ -4,6 +4,10 @@ description: 支持实时语音识别功能，用户可通过 EasyChat 识别系
 icon: Speech
 ---
 
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Video, Presentation, Headphones, Subtitles } from 'lucide-react';
+
+
 
 ## 使用方法
 
@@ -21,3 +25,24 @@ icon: Speech
    
 
 ![语音识别](../../images/screenrecord-asr.gif)
+
+
+## 使用场景
+
+<Cards>
+  <Card title="“生肉”视频与海外直播观看" icon={<Video />}>
+    观看 YouTube、Twitch 等平台无官方字幕的外语视频或实时直播时，EasyChat 能实时将系统声音转化为你熟悉的语言，并以悬浮字幕的形式显示在屏幕上，让你第一时间获取前沿资讯和娱乐内容。
+  </Card>
+
+  <Card title="跨国线上会议与远程网课" icon={<Presentation />}>
+    在使用 Zoom、Teams 开会或参与海外名校公开课时，开启实时识别并**指定会议软件进程**，即可获得纯净的会议实时翻译字幕，避免被其他软件的声音干扰。再也不用担心听漏关键信息，轻松应对跨语言听讲。
+  </Card>
+
+  <Card title="播客与纯音频内容可视化" icon={<Headphones />}>
+    在电脑上收听全外文的播客（Podcast）、有声书或访谈录音时，通过实时生成的翻译字幕，可以将纯听觉的音频内容转化为可视化的文本，大幅降低理解门槛，不错过任何精彩观点。
+  </Card>
+
+  <Card title="沉浸式外语听力辅助" icon={<Subtitles />}>
+    作为外语学习者的得力助手。在观看原声影视剧或播放听力材料时，悬浮字幕可以作为实时的母语参考，帮助你快速对照发音与释义，在沉浸式环境中有效提升外语听觉敏锐度。
+  </Card>
+</Cards>

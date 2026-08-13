@@ -1,0 +1,14 @@
+{
+  "title": "功能介绍",
+  "icon": "AudioLines",
+  "pages": [
+    "screenshot-translation",
+    "input-translation",
+    "selection",
+    "asr",
+    "image-ocr",
+    "quick-translate",
+    "quick-correction",
+    "simultaneous-interpretation"
+  ]
+}
