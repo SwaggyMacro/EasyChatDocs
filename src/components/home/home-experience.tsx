@@ -26,7 +26,6 @@ import {
 import screenshotDemo from '../../../content/docs/images/screenrecord-example.gif';
 import selectionDemo from '../../../content/docs/images/screenrecord-selection.webp';
 import translateDemo from '../../../content/docs/images/screenrecord-quick-translate.gif';
-import speechDemo from '../../../content/docs/images/screenrecord-asr.gif';
 import { setLanguagePreference } from '@/lib/language-preference';
 import styles from './home-experience.module.css';
 
@@ -42,6 +41,7 @@ type Demo = {
   href: string;
   icon: Icon;
   media?: StaticImageData;
+  video?: string;
 };
 
 const copy = {
@@ -59,7 +59,7 @@ const copy = {
       { id: 'selection', title: '划词工具栏', short: '选中文字', description: '选中文字后，在原位置打开工具栏，进行翻译、纠错、润色、总结或解释。', scenario: '网页阅读、邮件、文档和外语学习', requirement: 'AI 大模型；普通翻译也可使用机器翻译', href: '/zh/docs/feature/selection', icon: MousePointer2, media: selectionDemo },
       { id: 'input', title: '输入翻译', short: '输入后写回', description: '在任意应用的输入位置调用 EasyChat，用熟悉的语言输入，翻译完成后直接写回原来的输入框。', scenario: '跨国聊天、邮件、客服回复和游戏交流', requirement: '已配置的翻译服务', href: '/zh/docs/feature/input-translation', icon: SquarePen },
       { id: 'translate', title: '快捷翻译', short: '随时输入', description: '打开独立窗口输入文字，或读取当前选中的文本，查看译文、重点词和词典详情。', scenario: '临时查词、短句翻译和写作检查', requirement: '已配置的翻译源', href: '/zh/docs/feature/quick-translate', icon: Languages, media: translateDemo },
-      { id: 'speech', title: '实时字幕', short: '听系统声音', description: '识别电脑正在播放的音频，将原文和译文持续显示在悬浮字幕窗口中，支持 10 种语言识别。', scenario: '海外视频、直播、会议和网课', requirement: 'ASR 模型 + 翻译源', href: '/zh/docs/feature/asr', icon: AudioLines, media: speechDemo },
+      { id: 'speech', title: '实时字幕', short: '听系统声音', description: '识别电脑正在播放的音频，将原文和译文持续显示在悬浮字幕窗口中，支持 10 种语言识别。', scenario: '海外视频、直播、会议和网课', requirement: 'ASR 模型 + 翻译源', href: '/zh/docs/feature/asr', icon: AudioLines, video: '/videos/screenrecord-asr.mp4' },
     ] as Demo[],
     setupKicker: '第一次使用', setupTitle: '三步完成基础设置', setupIntro: '先把一项功能跑通，再按需要下载 OCR 或语音模型。',
     steps: [
@@ -114,7 +114,7 @@ const copy = {
       { id: 'selection', title: 'Selection toolbar', short: 'Select text', description: 'Open a compact toolbar beside selected text to translate, correct, polish, summarize, or explain it.', scenario: 'Web pages, email, documents, and language learning', requirement: 'An AI model; machine translation is also available for standard translation', href: '/en/docs/feature/selection', icon: MousePointer2, media: selectionDemo },
       { id: 'input', title: 'Typing translation', short: 'Translate and insert', description: 'Open EasyChat from any text field, write in your preferred language, and insert the translation back into the original application.', scenario: 'Cross-language messaging, email, customer support, and games', requirement: 'A configured translation service', href: '/en/docs/feature/input-translation', icon: SquarePen },
       { id: 'translate', title: 'Quick translate', short: 'Translate on demand', description: 'Open a focused window for typed or selected text and review the translation, key terms, and dictionary details.', scenario: 'Quick lookups, short translations, and writing checks', requirement: 'A configured translation service', href: '/en/docs/feature/quick-translate', icon: Languages, media: translateDemo },
-      { id: 'speech', title: 'Live subtitles', short: 'Listen to audio', description: 'Recognize audio in 10 languages and display the original text and translation in a floating subtitle window.', scenario: 'Videos, live streams, online meetings, and classes', requirement: 'An ASR model and a translation service', href: '/en/docs/feature/asr', icon: AudioLines, media: speechDemo },
+      { id: 'speech', title: 'Live subtitles', short: 'Listen to audio', description: 'Recognize audio in 10 languages and display the original text and translation in a floating subtitle window.', scenario: 'Videos, live streams, online meetings, and classes', requirement: 'An ASR model and a translation service', href: '/en/docs/feature/asr', icon: AudioLines, video: '/videos/screenrecord-asr.mp4' },
     ] as Demo[],
     setupKicker: 'First use', setupTitle: 'Get ready in three steps', setupIntro: 'Start with one working feature, then add OCR or speech models when needed.',
     steps: [
@@ -255,7 +255,7 @@ export function HomeExperience({ language }: { language: Language }) {
                   </div>
                 </div>
                 <div className="relative min-h-[280px] overflow-hidden bg-[#051225] sm:min-h-[390px] lg:min-h-[500px]">
-                  {demo.media ? <Image key={demo.id} src={demo.media} alt={`${demo.title}: ${demo.description}`} fill unoptimized priority={activeDemo === 0} sizes="(max-width: 1024px) 100vw, 60vw" className={`${styles.mediaEnter} object-contain object-center`} /> : <InputTranslationPreview language={language} />}
+                  {demo.video ? <video key={demo.id} src={demo.video} autoPlay loop muted playsInline controls preload="metadata" aria-label={`${demo.title}: ${demo.description}`} className={`${styles.mediaEnter} absolute inset-0 h-full w-full object-contain object-center`} /> : demo.media ? <Image key={demo.id} src={demo.media} alt={`${demo.title}: ${demo.description}`} fill unoptimized priority={activeDemo === 0} sizes="(max-width: 1024px) 100vw, 60vw" className={`${styles.mediaEnter} object-contain object-center`} /> : <InputTranslationPreview language={language} />}
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-[linear-gradient(transparent,rgba(5,18,37,.72))]" />
                 </div>
                 <aside className="border-t border-[#315582] p-5 lg:border-l lg:border-t-0 lg:p-6">
