@@ -1,0 +1,61 @@
+---
+title: 快速开始
+description: 四步快速上手开始使用 EasyChat
+icon: Rocket
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+<Steps>
+  <Step>
+    ### 第一步：下载安装软件
+    参考 [下载安装](./installation) 下载并安装 EasyChat。
+  </Step>
+
+  <Step>
+    ### 第二步：配置翻译源
+    软件支持接入 AI 大模型和机器翻译两种翻译源，您可以根据需求选择配置。  
+    具体区别参考: [翻译源介绍](./engine)
+    
+    #### AI 大模型
+    1. 打开 EasyChat，点击侧边栏的 `设置` 按钮。
+    2. 在设置页面中，选择 `翻译` 选项卡。
+    3. 在 `大模型` 选项卡中，添加、配置您想要使用的大模型翻译源。
+    ![配置大模型](../images/zh/config-llm.png)
+    4. 配置完成后，点击 `保存` 按钮以保存设置。
+    ![配置大模型](../images/zh/config-llm-2.png)
+
+    #### 机器翻译
+    1. 打开 EasyChat，点击侧边栏的 `设置` 按钮。
+    2. 在设置页面中，选择 `翻译` 选项卡。
+    3. 在 `机器翻译` 选项卡中，配置您想要使用的机器翻译源 API Key。
+    ![配置机器翻译](../images/zh/config-machine.png)
+  </Step>
+
+    <Step>
+        ### 第三步：配置热键
+        1. 打开 EasyChat，点击侧边栏的 `设置` 按钮。
+        2. 在设置页面中，选择 `热键` 选项卡。
+        3. 配置您想要使用的功能热键，这里以 `截图翻译`(`Alt` + `1`)、`输入翻译`(`Alt` + `2`) 为例。
+        ![配置热键](../images/zh/config-hotkey.png)
+
+    </Step>
+
+    <Step>
+    ### 第四步：下载 OCR 模型
+    EasyChat 需要使用 OCR 模型来识别截图中的文字。
+    1. 打开 EasyChat，点击侧边栏的 `设置` 按钮。
+    2. 在设置页面中，选择 `截图` 选项卡。
+    3. 选择所需要的 OCR 语言模型，点击 `下载` 按钮进行下载即可。
+    ![下载 OCR 模型](../images/zh/config-ocr-model.png)
+    </Step>
+</Steps>
+
+## 开始使用
+现在您已经完成了 EasyChat 的基础配置，您可以开始使用 EasyChat 进行截图翻译以及输入翻译了。
+使用流程：
+1. 截图翻译：按下 `Alt` + `1`，选择需要翻译的区域，EasyChat 将自动识别并翻译。
+2. 输入翻译：在需要翻译的地方(如: 微信、浏览器)按下 `Alt` + `2`，在弹出的输入框中输入需要翻译的文本，EasyChat 将自动识别并向目标投递翻译后的文本。
+
+
+![使用示例](../images/screenrecord-example.gif)

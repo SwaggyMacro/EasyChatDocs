@@ -1,0 +1,10 @@
+{
+  "title": "分类名称",
+  "pages": [
+    "index",
+    "quickstart",
+    "installation",
+    "engine",
+    "feature"
+  ]
+}

@@ -1,0 +1,70 @@
+---
+title: 翻译源介绍
+description: 选择 AI 大模型 或机器翻译，并理解功能限制。
+icon: LayoutGrid
+---
+
+
+<Callout type="warning" title="注意">
+    `AI 大模型` 和 `机器翻译` 均需要用户自行申请 API Key 并配置到软件中。
+    由于是开源免费软件，EasyChat 不提供任何 API Key，您需要自行申请。
+</Callout>
+
+## 支持列表
+### AI 大模型
+AI 大模型支持以下提供商：
+- [OpenAI](https://platform.openai.com/)
+- [Gemini](https://developers.generativeai.google/)
+- [Claude](https://www.anthropic.com/)
+- [DeepSeek](https://platform.deepseek.com/)
+- Custom LLMs (自定义大模型)
+> 自定义大模型支持 OpenAI API 兼容的模型，您可以使用自定义的 API Key 来接入其他大模型服务。
+
+
+### 机器翻译
+机器翻译支持以下提供商：
+- [百度翻译](https://fanyi.baidu.com/)
+- [腾讯翻译](https://fanyi.qq.com/)
+- [谷歌翻译](https://translate.google.com/)
+- [DeepL](https://www.deepl.com/translator)
+
+
+## 介绍
+先在 `设置->翻译` 中配置至少一个可用服务。AI 模型适合丰富的语言辅助；机器翻译适合只需要快速句子翻译的场景。
+
+| 能力 | AI 大模型 | 机器翻译 |
+| --- | --- | --- |
+| 普通句子翻译 | 支持 | 支持 |
+| 截图与输入翻译 | 支持 | 支持 |
+| 自定义提示词 | 支持 | 不支持 |
+| 词典详情：音标、词性、释义、例句、发音 | 支持 | 不支持 |
+| 搭配、罕见词、重点词、用法建议 | 支持 | 不支持 |
+| 纠错、润色、总结、解释 | 支持 | 不支持 |
+
+机器翻译仅提供普通句子翻译，不提供提示词、词典、详细释义、纠错、润色、总结或解释。
+
+### 选择建议
+
+- 追求翻译速度和效率，快速看懂聊天、网页或界面：机器翻译即可。
+- 需要术语、写作或学习辅助：配置 AI 大模型并启用划词工具栏。
+<Callout type="idea" title="推荐">
+强烈推荐使用 AI 大模型作为翻译源，因为它提供了更丰富的功能和更高的翻译质量。
+</Callout>
+
+<Callout type="warning" title="注意">
+  EasyChat 的 AI 大模型和机器翻译服务均依赖第三方服务，可能会受到网络环境、服务商限制或其他因素影响。
+    如果遇到无法使用的情况，请尝试切换服务或检查网络连接。
+</Callout>
+
+## AI 大模型推荐
+
+### 免费大模型
+1. [硅基流动 - SiliconFlow](https://siliconflow.cn)
+> 硅基流动提供了免费的小参数量 AI 大模型服务。您可以注册账号并获取 API Key 来使用该服务。
+2. [魔搭 - ModelScope](https://www.modelscope.cn/)
+> 魔搭社区 (ModelScope) 提供每日 2000 次 免费的 API 推理额度，支持 DeepSeek、Qwen（通义千问）、GLM 等上千款主流开源大模型。用户只需注册账号并绑定阿里云，即可在个人中心生成 API Key 来使用该服务。
+
+### 付费大模型
+1. [DeepSeek](https://platform.deepseek.com/)
+> 梁圣伟大无需多言，使用 deepseek-v4-flash 模型即可，响应速度快，价格非常便宜，10 块钱能用很久。
+> 价格表: [DeepSeek 价格表](https://api-docs.deepseek.com/zh-cn/quick_start/pricing/)
