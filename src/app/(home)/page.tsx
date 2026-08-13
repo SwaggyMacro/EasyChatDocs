@@ -1,5 +1,5 @@
-import { HomeExperience } from '@/components/home/home-experience';
+import { LanguageRedirect } from '@/components/home/language-redirect';
 
-export default function HomePage({ language = 'en' }: { language?: 'en' | 'zh' }) {
-  return <HomeExperience language={language} />;
+export default function HomePage() {
+  return <LanguageRedirect />;
 }
