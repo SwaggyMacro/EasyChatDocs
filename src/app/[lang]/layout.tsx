@@ -15,6 +15,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
   return (
     <RootProvider
       i18n={{ locale: lang, locales }}
+      theme={{ enabled: false }}
       search={{ options: { type: 'static', api: '/api/search' } }}
     >
       {children}

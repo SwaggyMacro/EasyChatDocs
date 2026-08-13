@@ -1,0 +1,23 @@
+---
+title: 实时语音识别
+description: 支持实时语音识别功能，用户可通过 EasyChat 识别系统正在播放的 音频/视频 内容，并将识别结果翻译为目标语言作为字幕形式显示在屏幕上，支持 10 种语言的识别。
+icon: Speech
+---
+
+
+## 使用方法
+
+<Callout title="注意" type="warning">
+    目前实时语音识别的 ASR 模型需要用户自行下载，可通过 [Github](https://github.com/SwaggyMacro/MicroASR/releases/tag/models-v1)、[Google 硬盘](https://drive.google.com/drive/folders/19pmknOmBA07HiVrUQljz1Jh3t3Jy8aDF?usp=sharing)、[QQ 交流群](https://qm.qq.com/q/rXrrefKXNQ) 中的群文件下载
+</Callout>
+1. 在 `设置`->`语音`->`ASR 模型` 导入您需要的 ASR 模型。
+   ![ASR 模型设置](../../images/zh/config-asr-import.png)
+
+2. 转至 `语音识别` 页面，选择好配置项，点击 `开始识别` 按钮，并开启字幕悬浮窗，EasyChat 将自动识别系统正在播放的音频/视频内容，并将识别结果翻译为目标语言作为字幕形式显示在屏幕上。
+   > 下方音频源选项中可以选择仅对指定的进程进行识别  
+
+   ![语音识别](../../images/zh/asr-start.png)
+   ![语音识别](../../images/zh/asr-subtitle.png)
+   
+
+![语音识别](../../images/screenrecord-asr.gif)

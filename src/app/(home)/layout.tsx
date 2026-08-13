@@ -13,6 +13,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <RootProvider
       i18n={{ locale: i18n.defaultLanguage, locales }}
+      theme={{ enabled: false }}
       search={{ options: { type: 'static', api: '/api/search' } }}
     >
       <HomeLayout {...baseOptions()}>{children}</HomeLayout>
