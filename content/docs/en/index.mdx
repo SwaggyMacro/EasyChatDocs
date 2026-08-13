@@ -1,13 +1,91 @@
 ---
-title: Hello World
-description: Your first document
+title: Get Started
+description: Start here with the EasyChat documentation
+icon: Book
 ---
 
-Welcome to the EasyChat docs. Start here to learn the project structure and setup flow.
+Welcome to EasyChat. EasyChat can recognize, translate, or process content from screenshots, text fields, selected text, and system audio with AI assistance.
 
-## What is Next?
+If this is your first time using EasyChat, set it up in this order: install the application, configure a translation source and a shortcut, then download the OCR or ASR models required by the features you want to use.
+
+<Callout type="info" title="Before you begin">
+  EasyChat currently supports Windows. You must obtain your own API keys for AI models, machine translation, and some speech services. EasyChat does not include credentials for third-party services.
+</Callout>
+
+## Recommended path
+import { Download, Rocket, LayoutGrid } from 'lucide-react';
 
 <Cards>
-  <Card title="Components" href="/en/docs/test" />
-  <Card title="EasyChat on GitHub" href="https://github.com/SwaggyMacro/EasyChat" />
+  <Card icon={<Download />} title="Download and install" description="Get the latest release and install EasyChat." href="/en/docs/installation" />
+  <Card icon={<Rocket />} title="Quick start" description="Complete the initial setup in four steps." href="/en/docs/quickstart" />
+  <Card icon={<LayoutGrid />} title="Translation sources" description="Understand the differences between AI models and machine translation." href="/en/docs/engine" />
 </Cards>
+
+## First-time setup
+
+### 1. Install and launch EasyChat
+
+Get either the installer or portable build from [Download and install](./installation). After EasyChat starts, the Home page shows whether a translation engine and shortcut have been configured.
+
+### 2. Configure a translation source
+
+Open `Setting` in the sidebar, then select `Translation`:
+
+- Configure an [AI model](./engine) if you need correction, polishing, summaries, explanations, or dictionary details.
+- Configure a machine translation service such as Baidu, Tencent, Google, or DeepL if you only need fast, general sentence translation.
+
+After configuration, use `Test Connection` to verify the API address, model, and key.
+
+<Callout type="info" title="AI models and machine translation">
+  - See [Translation sources](./engine) for a detailed comparison.
+  - **We strongly recommend using an `AI Model` as your primary translation source to access the complete EasyChat feature set.**
+</Callout>
+
+### 3. Add a shortcut
+
+Open the `Shortcut` page and add a frequently used action. These are good starting points:
+
+| Action | Purpose |
+| --- | --- |
+| Screenshot translation | Translate text in webpages, videos, images, or other content that cannot be copied. |
+| Typing Translate | Translate text directly into a chat app, browser, or another focused text field. |
+| Quick Translate | Open a window, enter text, and view the translation. |
+
+If a shortcut conflicts with another application, choose a key combination not reserved by Windows, your input method, or other software.
+
+### 4. Download models as needed
+
+- For screenshot translation or Screenshot OCR, download the OCR model for the required language under `Setting > Screenshot`. See [Screenshot Translation](./feature/screenshot-translation) and [Screenshot OCR](./feature/image-ocr).
+- For live speech recognition, download or import an ASR model under `Setting > Speech`. See [Live Speech Recognition](./feature/asr).
+
+## Complete your first translation
+
+After the basic setup, try a screenshot translation:
+
+1. Press the screenshot translation shortcut configured on the `Shortcut` page.
+2. Drag to select an area containing text.
+3. Wait for OCR and translation to finish, then read the translation in the result window.
+
+For text you can copy, use Quick Translate or the Selection Toolbar. To process system audio, open [Speech Recognition](./pages/speech-recognition) and start recognition.
+
+## Explore by task
+
+<Cards>
+  <Card title="Pages" description="Learn what each page in the sidebar is for." href="/en/docs/pages" />
+  <Card title="Features" description="Learn how to use screenshot, input, selection, and speech features." href="/en/docs/feature" />
+  <Card title="Settings" description="Understand every EasyChat setting." href="/en/docs/settings" />
+</Cards>
+
+## Troubleshooting
+
+<Callout type="warning" title="No translation appears">
+  Confirm that a working service is configured under `Setting > Translation`, then check its API key, model name, and network proxy. Both AI models and machine translation require a connection to a third-party service.
+</Callout>
+
+<Callout type="warning" title="No text is recognized in a screenshot">
+  Make sure you downloaded an OCR model for the text language. Select a clear area with sufficient contrast whenever possible.
+</Callout>
+
+<Callout type="warning" title="A shortcut does not respond">
+  Confirm that the shortcut entry is enabled and that no other software is using the same key combination. Some security applications may also restrict global shortcuts or simulated input.
+</Callout>

@@ -1,0 +1,43 @@
+---
+title: Screenshot OCR
+description: Recognize and interact with text inside a selected screen area
+icon: TypeOutline
+---
+
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { ScanText, MousePointerClick, Code, Search } from 'lucide-react';
+
+Screenshot OCR recognizes all text in a captured area. In the OCR window, select any recognized text to copy, translate, or explain it, or translate the complete image.
+
+## How to use it
+
+There are two ways to open Screenshot OCR.
+
+### Shortcut
+
+On the `Shortcut` page, add a shortcut whose action is `Screenshot OCR`. Press it and select the screen area to recognize.
+
+### Screenshot toolbar
+
+Under `Setting > Screenshot > Screenshot Mode`, choose the precise capture mode with a toolbar. After selecting an area with the screenshot translation shortcut, choose the `OCR` action on the capture toolbar.
+
+An OCR model for the text language must be installed under `Setting > Screenshot > OCR models`.
+
+![Screenshot OCR](../../images/screenrecord-ocr.gif)
+
+## Use cases
+
+<Cards>
+  <Card title="Extract non-selectable text" icon={<ScanText />}>
+    Copy error messages, protected webpage text, scanned documents, or image-only PDF content without retyping it.
+  </Card>
+  <Card title="Look up text within an image" icon={<MousePointerClick />}>
+    Select an individual word or phrase in a comic, poster, or game and translate or explain only that selection.
+  </Card>
+  <Card title="Capture code and data from video" icon={<Code />}>
+    Extract code, commands, or table data shown in a tutorial and paste it into an editor or spreadsheet.
+  </Card>
+  <Card title="Reuse key information" icon={<Search />}>
+    Copy tracking numbers, addresses, contact details, and technical terms from screenshots into another application.
+  </Card>
+</Cards>

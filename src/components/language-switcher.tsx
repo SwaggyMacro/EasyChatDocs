@@ -3,6 +3,8 @@
 import { usePathname, useRouter } from 'next/navigation';
 import type { MouseEvent } from 'react';
 
+import { setLanguagePreference } from '@/lib/language-preference';
+
 export function LanguageSwitcher({ language = 'en' }: { language?: 'en' | 'zh' }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -13,6 +15,7 @@ export function LanguageSwitcher({ language = 'en' }: { language?: 'en' | 'zh' }
     // click from activating that parent link on documentation pages.
     event.preventDefault();
     event.stopPropagation();
+    setLanguagePreference(nextLanguage);
     const segments = pathname.split('/').filter(Boolean);
     if (segments[0] === 'en' || segments[0] === 'zh') segments[0] = nextLanguage;
     else segments.unshift(nextLanguage);

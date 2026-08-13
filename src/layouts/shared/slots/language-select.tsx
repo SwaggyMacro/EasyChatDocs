@@ -6,6 +6,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '../../../components/ui/
 import { cn } from '../../../lib/cn';
 import { buttonVariants } from '../../../components/ui/button';
 import type { VariantProps } from 'class-variance-authority';
+import { isSiteLanguage, setLanguagePreference } from '../../../lib/language-preference';
 
 export interface LanguageSelectProps extends ComponentProps<'button'> {
   variant?: VariantProps<typeof buttonVariants>['variant'];
@@ -47,6 +48,7 @@ export function LanguageSelect({
                 : 'text-fd-muted-foreground hover:bg-fd-accent hover:text-fd-accent-foreground',
             )}
             onClick={() => {
+              if (isSiteLanguage(item.locale)) setLanguagePreference(item.locale);
               context.onChange?.(item.locale);
             }}
           >

@@ -1,0 +1,13 @@
+{
+  "title": "Settings Reference",
+  "icon": "Settings2",
+  "pages": [
+    "general",
+    "translation",
+    "selection",
+    "speech",
+    "screenshot",
+    "result",
+    "input"
+  ]
+}

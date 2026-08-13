@@ -1,0 +1,45 @@
+---
+title: Typing Translate
+description: Translate entered text and deliver the result directly to the target application
+icon: SquarePen
+---
+
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Briefcase, Headset, Gamepad2, MessageCircle, Globe } from 'lucide-react';
+
+Typing Translate opens from a global shortcut. Enter text in your language and EasyChat translates it, then delivers the result to the currently focused application.
+
+## How to use it
+
+1. Open `Shortcut` from the sidebar and add a shortcut whose action is `Typing Translate`.
+2. Focus the text field in the target application, then press the shortcut.
+3. Enter the text to translate. EasyChat detects the language, translates the text, and delivers it to the target application.
+
+## Requirements and language settings
+
+1. Configure at least one working translation source, either an AI model or machine translation.
+2. In the input window, choose the source and target languages directly, or enable `Follow Configuration` to use the globally configured language direction.
+
+See [Input Window settings](../settings/input) for text delivery, simulated keys, and language options.
+
+![Typing Translate example](../../images/screenrecord-example.gif)
+
+## Use cases
+
+<Cards>
+  <Card title="International business" icon={<Briefcase />}>
+    Write in your own language while communicating with customers and international teams in chat, email, Slack, or Teams.
+  </Card>
+  <Card title="Cross-border customer support" icon={<Headset />}>
+    Reply to customer questions in WhatsApp, Skype, or an e-commerce console without switching between the service and a translation application.
+  </Card>
+  <Card title="Multiplayer communication" icon={<Gamepad2 />}>
+    Quickly translate messages into a game's chat field while playing on an international server.
+  </Card>
+  <Card title="Social conversations" icon={<MessageCircle />}>
+    Express ideas naturally when talking with people in Telegram, Discord, LINE, or other social applications.
+  </Card>
+  <Card title="Multilingual publishing" icon={<Globe />}>
+    Translate a draft directly into a social media publishing field for faster multilingual posting.
+  </Card>
+</Cards>

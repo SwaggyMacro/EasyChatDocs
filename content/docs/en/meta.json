@@ -1,0 +1,12 @@
+{
+  "title": "EasyChat",
+  "pages": [
+    "index",
+    "quickstart",
+    "installation",
+    "engine",
+    "pages",
+    "feature",
+    "settings"
+  ]
+}

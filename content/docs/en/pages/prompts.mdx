@@ -1,0 +1,34 @@
+---
+title: Prompts
+description: Manage prompt templates for AI translation, correction, polishing, summaries, and explanations
+icon: TextQuote
+---
+
+`Prompts` manages instruction templates sent to AI models. Prompts do not apply to machine translation.
+
+## Page actions
+
+| Action | Purpose |
+| --- | --- |
+| Add Prompt | Create a template with a name and role description. |
+| Search | Filter prompts by name or content. |
+| Edit | Change a template's name or role description. |
+| Delete | Remove a template. Choose another prompt first if a configuration still references it. |
+| Set as Default | Make a prompt the global default. |
+
+## How prompts are applied
+
+Translation, Selection Toolbar actions, speech translation, and `Translate / Correct` can select a prompt. When a workflow has no dedicated prompt, it uses the default prompt.
+
+The current prompt editor asks you to describe the assistant's role, expertise, style, and domain. EasyChat adds language, task, and output rules automatically. Keep instructions focused; long or contradictory instructions can make model output less consistent.
+
+<Callout type="info" title="Prompt roles">
+  A role describes the perspective the model should use, such as “professional translator,” “English teacher,” or “writing assistant.” EasyChat includes 26 preset prompts that you can use directly.
+</Callout>
+
+## Language parameters
+
+For legacy or imported prompt templates, these placeholders are replaced when the AI model is called:
+
+- `[SourceLang]`: the current source language.
+- `[TargetLang]`: the current target language.

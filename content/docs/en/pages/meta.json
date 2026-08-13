@@ -1,0 +1,13 @@
+{
+  "title": "Pages",
+  "icon": "PanelsTopLeft",
+  "pages": [
+    "home",
+    "settings",
+    "shortcuts",
+    "prompts",
+    "speech-recognition",
+    "text-assist",
+    "about"
+  ]
+}

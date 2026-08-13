@@ -1,0 +1,41 @@
+---
+title: Features
+description: Explore the translation and language-assistance features in EasyChat
+icon: AudioLines
+---
+
+import { MonitorDot, TextCursorInput, SquarePen, Speech, TypeOutline, Languages, SpellCheck2, MicSignal } from 'lucide-react';
+
+<Cards>
+  <Card icon={<MonitorDot />} href="./feature/screenshot-translation" title="Screenshot Translation">
+    Select an area of the screen to recognize and translate its text.
+  </Card>
+
+  <Card icon={<SquarePen />} href="./feature/input-translation" title="Typing Translate">
+    Enter text in any language, translate it automatically, and deliver the result to the target application.
+  </Card>
+
+  <Card icon={<TextCursorInput />} href="./feature/selection" title="Selection Toolbar">
+    Translate, summarize, polish, correct, or explain selected text.
+  </Card>
+
+  <Card icon={<Speech />} href="./feature/asr" title="Live Speech Recognition">
+    Recognize audio playing on the system and display the original text or translation as subtitles. Ten recognition languages are supported.
+  </Card>
+
+  <Card icon={<TypeOutline />} href="./feature/image-ocr" title="Screenshot OCR">
+    Recognize text in a selected screen area, then select text in the captured image to copy, translate, or explain it.
+  </Card>
+
+  <Card icon={<Languages />} href="./feature/quick-translate" title="Quick Translate">
+    Enter text or read the current selection and view a translation with optional dictionary details and usage guidance.
+  </Card>
+
+  <Card icon={<SpellCheck2 />} href="./feature/quick-correction" title="Quick Correction">
+    Find grammar errors, view a corrected version, and learn from detailed suggestions and explanations.
+  </Card>
+
+  <Card icon={<MicSignal />} href="./feature/simultaneous-interpretation" title="Simultaneous Interpretation">
+    Recognize microphone input, translate it, and route generated speech through a virtual audio device. This feature is still in development.
+  </Card>
+</Cards>

@@ -1,0 +1,33 @@
+---
+title: Translation Settings
+description: Configure AI models, machine translation services, model parameters, and prompts
+icon: Languages
+---
+
+## AI models
+
+You can add multiple custom model configurations and select among them in other EasyChat features.
+
+| Option | Purpose |
+| --- | --- |
+| Name | The model configuration name shown in EasyChat, used to distinguish services. |
+| Model Type | Selects OpenAI, Gemini, Claude, DeepSeek, or Custom, which determines the request protocol and default parameters. |
+| API Key | An access key issued by the provider. Multiple keys can be maintained for rotation or to distribute rate limits. |
+| API address | The model service endpoint. Enter it for Custom models or an OpenAI-compatible gateway. |
+| Model | The model identifier to call, such as the model name from the provider's documentation. |
+| Use Proxy | Controls whether requests from this AI model use the general network proxy. |
+| Enable thinking | Enables reasoning capability for models that support it. This may increase response time and usage. |
+| Test Connection | Sends a test request with the current configuration to verify the endpoint, key, and model. |
+
+## Machine translation
+
+EasyChat supports Baidu, Tencent, Google, and DeepL. Each service has its own proxy switch, service identifier, and credentials.
+
+| Service | Required fields | Purpose |
+| --- | --- | --- |
+| Baidu Translate | App ID, App Key | Uses credentials from the Baidu Translate Open Platform. |
+| Tencent Translate | Secret ID, Secret Key | Uses Tencent Cloud Machine Translation credentials. |
+| Google Translate | Model, API Key | Selects a Google translation model and maintains API keys. |
+| DeepL | Model Type, API Key | Selects a DeepL model type and maintains API keys. |
+
+Each service's `Use Proxy` option affects only that service. Use `Test Connection` to validate the current credentials. Apply for credentials in the provider's console; EasyChat does not include usable API keys.

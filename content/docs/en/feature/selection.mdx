@@ -1,0 +1,56 @@
+---
+title: Selection Toolbar
+description: Translate, summarize, polish, correct, or explain selected text
+icon: TextCursorInput
+---
+
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { BookOpen, PenTool, GraduationCap, Settings2 } from 'lucide-react';
+
+## How to use it
+
+1. Under `Setting > Selection`, enable `Enable Selection Toolbar` and choose the actions you need:
+   - **Translate:** translate the selection into a chosen target language.
+   - **Summary:** produce a short summary of the selection.
+   - **Polish:** improve fluency and style.
+   - **Correct:** correct grammar and wording.
+   - **Explain:** explain the meaning or context.
+2. Select text in another application. When the toolbar appears, choose an action.
+
+Except for general translation, these actions require an AI model.
+
+## Trigger and application scope
+
+`Selection Method` provides three trigger modes:
+
+- **Double-click:** show the toolbar when you double-click a word or phrase.
+- **Press and hold:** show it after selecting text by holding the mouse button.
+- **All:** enable both methods.
+
+Selection actions can also be assigned on the `Shortcut` page. Shortcut actions remain available even when the automatic Selection Toolbar is disabled.
+
+Use `Setting > Selection > Application List` to control where the automatic toolbar appears:
+
+- In blacklist mode, the toolbar is disabled in listed applications and enabled elsewhere.
+- In whitelist mode, the toolbar is enabled only in listed applications.
+
+The application list does not restrict selection action shortcuts; global shortcuts continue to work in every application.
+
+![Selection Toolbar](../../images/screenrecord-selection.webp)
+
+## Use cases
+
+<Cards>
+  <Card title="Research and long-form reading" icon={<BookOpen />}>
+    Summarize long reports and papers, or explain unfamiliar technical terms without leaving the document.
+  </Card>
+  <Card title="Email and professional writing" icon={<PenTool />}>
+    Polish a draft and correct grammar or spelling before sending it.
+  </Card>
+  <Card title="Focused language study" icon={<GraduationCap />}>
+    Translate or explain a selected word or complex sentence while keeping your reading flow intact.
+  </Card>
+  <Card title="Application-specific workflows" icon={<Settings2 />}>
+    Limit the automatic toolbar to browsers or PDF readers while keeping it hidden in editors and design tools.
+  </Card>
+</Cards>

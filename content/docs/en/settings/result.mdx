@@ -1,0 +1,24 @@
+---
+title: Result Window Settings
+description: Configure result window layout, appearance, read-aloud behavior, and automatic closing
+icon: PanelsTopLeft
+---
+
+## Display and read aloud
+
+| Option | Purpose |
+| --- | --- |
+| Result Window Mode | `Classic` shows a standard translation result at the top of the screen. `Dictionary` is suited to words and phrases and shows richer definition information, which requires an AI model. Both modes support Markdown rendering. |
+| Read Aloud | Does not read, reads the source language, reads the target language, or reads both. Voices are determined by the TTS configuration in Speech settings. |
+| Font, font size, font color | Sets the appearance of result text. |
+| Opacity | Adjusts the transparency of the complete result window. |
+| Background Color | Sets the content area's background color. |
+| Window Background | Sets the outer window background color. |
+
+## Automatic behavior
+
+| Option | Purpose |
+| --- | --- |
+| Auto Close Delay | Sets, in milliseconds, how long the result window remains visible before closing automatically. A larger value provides more reading time. |
+| Auto Calculate Delay | When enabled, calculates the closing delay from the result length using `Ms/Char`. When disabled, uses the fixed `Auto Close Delay`. |
+| Ms/Char | Sets the number of milliseconds per character used to calculate the automatic delay. |

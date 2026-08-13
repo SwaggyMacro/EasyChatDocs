@@ -1,0 +1,32 @@
+---
+title: Shortcut
+description: Add, edit, and enable global EasyChat shortcuts
+icon: Keyboard
+---
+
+The `Shortcut` page creates global shortcuts that can activate EasyChat while another application is in the foreground. The key combination must not already be reserved by Windows or another application.
+
+## Basic shortcuts
+
+| Action | Behavior |
+| --- | --- |
+| Screenshot translation | Select a screen area, recognize its text, and translate it. |
+| Screenshot OCR | Select a screen area and recognize its text without immediately translating it. |
+| Typing Translate | Open the input window and deliver translated text to the focused input field. |
+| Selection translation | Translate the currently selected text. |
+| Quick Translate | Open a window for entering or loading text to translate. |
+| Quick Correction | Open a window that corrects the entered or selected text. |
+
+Quick Translate and Quick Correction support `Read selected text`, which loads the current selection when the shortcut runs.
+
+## Language switch shortcuts
+
+Language switch shortcuts change the global source or target language without opening the main window. They are useful when you work with several languages.
+
+## Editing an entry
+
+Every entry includes an action, key combination, enabled state, and optional remark. Depending on the action, additional options may include the translation engine and model, source and target languages, `Replace current input`, simulated keys before or after delivery, or a text-assistance mode. Disabling an entry preserves it but unregisters its shortcut.
+
+<Callout type="warning" title="Shortcut conflicts">
+  If a shortcut does not run, choose a combination not used by Windows, your input method, the focused application, or other background software.
+</Callout>

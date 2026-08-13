@@ -1,0 +1,42 @@
+---
+title: Screenshot Translation
+description: Select an area of the screen to recognize and translate its text
+icon: MonitorDot
+---
+
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { FileText, Gamepad2, MonitorPlay, BookOpen } from 'lucide-react';
+
+Screenshot Translation recognizes text in a selected screen area and translates it into your target language.
+
+## How to use it
+
+1. **Add a shortcut.** Open `Shortcut` from the sidebar and add a shortcut for Screenshot Translation.
+2. **Download an OCR model.** Under `Setting > Screenshot > OCR models`, download a model for the language you need to recognize. EasyChat provides OCR models for more than 80 languages.
+3. **Capture and translate.** Press the configured shortcut and drag over the area to translate. EasyChat recognizes the text and displays the translation on screen.
+
+## Requirements and display modes
+
+1. At least one working translation source, either an AI model or machine translation, must be configured first.
+2. Choose a result layout under `Setting > Result Window > Result Window Mode`:
+   - **Classic:** shows the translation at the top of the screen for quick reading.
+   - **Dictionary:** opens a floating dictionary window near the pointer with details such as phonetics, parts of speech, definitions, examples, and pronunciation. Dictionary details require an AI model.
+
+![Screenshot Translation example](../../images/screenrecord-example.gif)
+
+## Use cases
+
+<Cards>
+  <Card title="Images and non-selectable documents" icon={<FileText />}>
+    Translate scanned documents, image-only PDFs, comics, and posters without manually retyping their text.
+  </Card>
+  <Card title="Unlocalized software and games" icon={<Gamepad2 />}>
+    Capture interface labels, skill descriptions, or dialogue in software and games that are not available in your language.
+  </Card>
+  <Card title="Videos and live streams" icon={<MonitorPlay />}>
+    Pause a lecture, video, or stream and translate text shown in slides or in the video frame.
+  </Card>
+  <Card title="Close reading and language study" icon={<BookOpen />}>
+    Use Dictionary mode to study definitions, phonetics, parts of speech, examples, and pronunciation while reading foreign-language content.
+  </Card>
+</Cards>

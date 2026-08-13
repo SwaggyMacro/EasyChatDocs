@@ -1,0 +1,71 @@
+---
+title: Translation Sources
+description: Choose between an AI model and machine translation and understand their limitations
+icon: LayoutGrid
+---
+
+<Callout type="warning" title="API keys required">
+  You must obtain and configure your own API keys for both `AI Model` and `Machine Trans` services. EasyChat is free, open-source software and does not provide third-party API keys.
+</Callout>
+
+## Supported providers
+
+### AI models
+
+EasyChat supports these providers:
+
+- [OpenAI](https://platform.openai.com/)
+- [Gemini](https://ai.google.dev/)
+- [Claude](https://www.anthropic.com/)
+- [DeepSeek](https://platform.deepseek.com/)
+- Custom LLMs
+
+> Custom LLMs can connect to providers with an OpenAI-compatible API by using the provider's API endpoint, model name, and API key.
+
+### Machine translation
+
+EasyChat supports these providers:
+
+- [Baidu Translate](https://fanyi.baidu.com/)
+- [Tencent Translate](https://fanyi.qq.com/)
+- [Google Translate](https://translate.google.com/)
+- [DeepL](https://www.deepl.com/translator)
+
+## Comparison
+
+Configure at least one working service under `Setting > Translation`. AI models provide the complete set of language-assistance features. Machine translation is suitable when you only need fast sentence translation.
+
+| Capability | AI model | Machine translation |
+| --- | --- | --- |
+| General sentence translation | Supported | Supported |
+| Screenshot and input translation | Supported | Supported |
+| Custom prompts | Supported | Not supported |
+| Dictionary details: phonetics, parts of speech, definitions, examples, and pronunciation | Supported | Not supported |
+| Collocations, uncommon words, key words, and usage tips | Supported | Not supported |
+| Correction, polishing, summaries, and explanations | Supported | Not supported |
+
+Machine translation only provides general sentence translation. It does not support prompts, dictionary details, correction, polishing, summaries, or explanations.
+
+### Which should I choose?
+
+- For quick translations in chats, webpages, or application interfaces, machine translation is sufficient.
+- For terminology, writing, or language-learning assistance, configure an AI model and enable the Selection Toolbar.
+
+<Callout type="idea" title="Recommendation">
+  We strongly recommend an AI model as your primary translation source because it provides more features and generally better translation quality.
+</Callout>
+
+<Callout type="warning" title="Third-party availability">
+  AI models and machine translation depend on third-party services. Availability may be affected by your network environment or provider restrictions. If a service is unavailable, check the network connection or switch providers.
+</Callout>
+
+## Recommended AI model services
+
+### Free options
+
+1. [SiliconFlow](https://siliconflow.cn) provides free access to selected smaller AI models. Register for an account to obtain an API key.
+2. [ModelScope](https://www.modelscope.cn/) provides a daily allowance of 2,000 API inference calls and supports many open-source models, including DeepSeek, Qwen, and GLM. Register, link an Alibaba Cloud account, and create an API key in your profile.
+
+### Paid options
+
+1. [DeepSeek](https://platform.deepseek.com/) offers fast, low-cost models. See the [DeepSeek pricing documentation](https://api-docs.deepseek.com/quick_start/pricing/) for current prices.

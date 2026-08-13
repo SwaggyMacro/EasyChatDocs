@@ -1,0 +1,38 @@
+---
+title: Quick Translate
+description: Translate entered or selected text with optional dictionary details and usage guidance
+icon: Languages
+---
+
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Zap, BookOpen, PenLine, Layers } from 'lucide-react';
+
+## How to use it
+
+Use Quick Translate either from the translation tab on the `Translate / Correct` page or from a global shortcut.
+
+On the page or in the shortcut window, you can choose the target language and translation engine and enable `Detailed notes`. The detailed view can include meanings, collocations, key words, uncommon words, and usage tips, and requires an AI model.
+
+### Shortcut
+
+1. On the `Shortcut` page, add a shortcut for Quick Translate. Enable `Read selected text` if the shortcut should copy the current selection automatically.
+2. Press the shortcut, then enter text or translate the selection loaded into the window.
+
+![Quick Translate](../../images/screenrecord-quick-translate.gif)
+
+## Use cases
+
+<Cards>
+  <Card title="Translation from any application" icon={<Zap />}>
+    Select text in a webpage, PDF, editor, or other application and open the result without switching to a separate translation site.
+  </Card>
+  <Card title="Vocabulary and language study" icon={<BookOpen />}>
+    Use dictionary details, collocations, uncommon-word notes, and usage guidance to study a word in depth.
+  </Card>
+  <Card title="More precise foreign-language writing" icon={<PenLine />}>
+    Compare definitions and usage suggestions when choosing how to express an idea in another language.
+  </Card>
+  <Card title="Frequent multilingual work" icon={<Layers />}>
+    Use the main `Translate / Correct` page as a central workspace for repeatedly translating longer text.
+  </Card>
+</Cards>

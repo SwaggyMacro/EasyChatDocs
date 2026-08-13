@@ -1,0 +1,29 @@
+---
+title: Screenshot Settings
+description: Configure screenshot capture, OCR recognition, and fixed capture areas
+icon: ScanSearch
+---
+
+## Screenshot and OCR
+
+| Option | Purpose |
+| --- | --- |
+| Screenshot Mode | Selects normal capture, the precise capture toolbar, or another mode, determining which actions are available after an area is selected. |
+| OCR mode | Normal mode starts the OCR engine only for a screenshot operation. Fast mode keeps it running in the background after the first screenshot and uses some memory. Idle-release mode unloads the OCR engine when no Screenshot OCR operation occurs during the configured interval. |
+| Close after idle | Sets how long the OCR window can remain inactive before it closes, from 10 to 3,600 seconds. The default is 300 seconds. |
+| Close previous OCR window | Automatically closes the preceding Screenshot OCR window when OCR is started again, preventing windows from stacking. |
+| OCR models | Downloads, imports, or deletes OCR models for different languages. The model matching the text language must be installed before using Screenshot OCR. |
+| Use Proxy | Controls whether OCR model downloads use the network proxy configured in General settings. |
+
+## Fixed areas
+
+A fixed area stores a frequently used rectangle on the screen for repeatedly capturing the same position.
+
+| Field | Purpose |
+| --- | --- |
+| Name | Assigns an identifiable name to the fixed area. |
+| X, Y | Sets the screen coordinates of the area's upper-left corner. |
+| Width, height | Sets the dimensions of the area. |
+| Enabled | Controls whether the area appears in the capture selection list. |
+
+> This feature is not yet complete.

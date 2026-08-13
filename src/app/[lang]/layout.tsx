@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 
+import { LanguagePreferenceSync } from '@/components/language-preference-sync';
 import { i18n } from '@/lib/shared';
 
 const locales = i18n.languages.map((locale) => ({
@@ -18,6 +19,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
       theme={{ enabled: false }}
       search={{ options: { type: 'static', api: '/api/search' } }}
     >
+      <LanguagePreferenceSync language={lang as 'en' | 'zh'} />
       {children}
     </RootProvider>
   );
