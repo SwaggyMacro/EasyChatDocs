@@ -1,7 +1,7 @@
 'use client';
 
 import Image, { type StaticImageData } from 'next/image';
-import Link from 'next/link';
+import { NoPrefetchLink as Link } from '@/components/no-prefetch-link';
 import { useEffect, useRef, useState, type ComponentType, type CSSProperties, type KeyboardEvent } from 'react';
 import {
   ArrowRight,
