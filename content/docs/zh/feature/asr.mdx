@@ -12,9 +12,10 @@ import { Video, Presentation, Headphones, Subtitles } from 'lucide-react';
 ## 使用方法
 
 <Callout title="注意" type="warning">
-    目前实时语音识别的 ASR 模型需要用户自行下载，可通过 [Github](https://github.com/SwaggyMacro/MicroASR/releases/tag/models-v1)、[Google 硬盘](https://drive.google.com/drive/folders/19pmknOmBA07HiVrUQljz1Jh3t3Jy8aDF?usp=sharing)、[QQ 交流群](https://qm.qq.com/q/rXrrefKXNQ) 中的群文件下载
+    目前实时语音识别的 ASR 模型已支持应用内下载(下载源为 Github)，中国大陆地区用户可能会因为网络问题导致下载失败，可在 `设置`->`常规`->`网络代理` 中配置代理后再尝试下载，或使用如 Watt Toolkit 等工具加速 Github 下载；  
+    也可手动导入通过 [Github](https://github.com/SwaggyMacro/MicroASR/releases/tag/models-v1)、[Google 硬盘](https://drive.google.com/drive/folders/19pmknOmBA07HiVrUQljz1Jh3t3Jy8aDF?usp=sharing)、[QQ 交流群](https://qm.qq.com/q/rXrrefKXNQ) 中群文件下载的模型。
 </Callout>
-1. 在 `设置`->`语音`->`ASR 模型` 导入您需要的 ASR 模型。
+1. 在 `设置`->`语音`->`ASR 模型` 下载或导入您需要的 ASR 模型。
    ![ASR 模型设置](../../images/zh/config-asr-import.png)
 
 2. 转至 `语音识别` 页面，选择好配置项，点击 `开始识别` 按钮，并开启字幕悬浮窗，EasyChat 将自动识别系统正在播放的音频/视频内容，并将识别结果翻译为目标语言作为字幕形式显示在屏幕上。
@@ -23,12 +24,27 @@ import { Video, Presentation, Headphones, Subtitles } from 'lucide-react';
    ![语音识别](../../images/zh/asr-start.png)
    ![语音识别](../../images/zh/asr-subtitle.png)
    
+## 支持的语言
+目前支持 10 种识别语言，每种语言均有独立的 ASR 模型。请在使用该功能前下载相应的模型。
+
+| 语言 | 代码 |
+| --- | --- |
+| 英语 | en-US |
+| 简体中文 | zh-CN |
+| 日语 | ja-JP |
+| 韩语 | ko-KR |
+| 德语 | de-DE |
+| 丹麦语 | da-DK |
+| 西班牙语 | es-ES |
+| 法语 | fr-FR |
+| 意大利语 | it-IT |
+| 葡萄牙语 | pt-PT |
+
 
 <VideoPlayer
   src="/videos/screenrecord-asr.mp4"
   aria-label="实时语音识别演示"
 />
-
 
 ## 使用场景
 

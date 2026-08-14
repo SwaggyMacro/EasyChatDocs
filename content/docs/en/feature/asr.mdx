@@ -11,8 +11,10 @@ EasyChat can recognize audio playing on your Windows system, translate it, and d
 
 ## How to use it
 
+
 <Callout title="ASR model required" type="warning">
-  Download an ASR model from [GitHub](https://github.com/SwaggyMacro/MicroASR/releases/tag/models-v1), [Google Drive](https://drive.google.com/drive/folders/19pmknOmBA07HiVrUQljz1Jh3t3Jy8aDF?usp=sharing), or the [EasyChat QQ group](https://qm.qq.com/q/rXrrefKXNQ). You can also use the built-in model download controls when a catalog is available.
+  Currently, the ASR models for real-time speech recognition can be downloaded directly within the app (download source: GitHub). Users in mainland China may experience download failures due to network issues. You can configure a proxy in `Settings` -> `General` -> `Network Proxy` before trying again, or use tools like Watt Toolkit to accelerate GitHub downloads;   
+    Alternatively, you can manually import models downloaded from [GitHub](https://github.com/SwaggyMacro/MicroASR/releases/tag/models-v1), [Google Drive](https://drive.google.com/drive/folders/19pmknOmBA07HiVrUQljz1Jh3t3Jy8aDF?usp=sharing), or the group files in our [QQ Group](https://qm.qq.com/q/rXrrefKXNQ).
 </Callout>
 
 1. Under `Setting > Speech > ASR models`, import the required model folder or supported model archive.
@@ -22,6 +24,22 @@ EasyChat can recognize audio playing on your Windows system, translate it, and d
 
    ![Start speech recognition](../../images/zh/asr-start.png)
    ![Speech recognition subtitles](../../images/zh/asr-subtitle.png)
+
+## Supported languages
+10 recognition languages are supported, each with its own ASR model. Please download the corresponding model before using the feature.
+
+| Language | Code |
+| --- | --- |
+| English | en-US |
+| Chinese (Simplified) | zh-CN |
+| Japanese | ja-JP |
+| Korean | ko-KR |
+| German | de-DE |
+| Danish | da-DK |
+| Spanish | es-ES |
+| French | fr-FR |
+| Italian | it-IT |
+| Portuguese | pt-PT |
 
 <VideoPlayer
   src="/videos/screenrecord-asr.mp4"
@@ -44,3 +62,4 @@ EasyChat can recognize audio playing on your Windows system, translate it, and d
     Compare spoken language with real-time source or translated subtitles while studying.
   </Card>
 </Cards>
+

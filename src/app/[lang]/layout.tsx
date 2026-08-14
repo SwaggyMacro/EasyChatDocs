@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { RootProvider } from 'fumadocs-ui/provider/next';
 
+import { FumadocsRootProvider } from '@/components/fumadocs-root-provider';
 import { LanguagePreferenceSync } from '@/components/language-preference-sync';
 import { i18n } from '@/lib/shared';
 
@@ -14,14 +14,14 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
   if (!i18n.languages.includes(lang as 'en' | 'zh')) notFound();
 
   return (
-    <RootProvider
+    <FumadocsRootProvider
       i18n={{ locale: lang, locales }}
       theme={{ enabled: false }}
       search={{ options: { type: 'static', api: '/api/search' } }}
     >
       <LanguagePreferenceSync language={lang as 'en' | 'zh'} />
       {children}
-    </RootProvider>
+    </FumadocsRootProvider>
   );
 }
 
