@@ -2,6 +2,7 @@ export const appName = 'EasyChat';
 export const docsRoute = '/docs';
 export const docsImageRoute = '/og/docs';
 export const docsContentRoute = '/llms.mdx/docs';
+export const qqGroupUrl = 'https://qm.qq.com/q/rXrrefKXNQ';
 // Keep this separate from Fumadocs' legacy FD_LOCALE cookie so an old default
 // does not override the user's browser language on their first visit.
 export const languageCookieName = 'easychat_locale';

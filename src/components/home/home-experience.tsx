@@ -15,6 +15,7 @@ import {
   Keyboard,
   Languages,
   Menu,
+  MessagesSquare,
   MousePointer2,
   ScanText,
   Settings2,
@@ -27,6 +28,7 @@ import screenshotDemo from '../../../content/docs/images/screenrecord-example.gi
 import selectionDemo from '../../../content/docs/images/screenrecord-selection.webp';
 import translateDemo from '../../../content/docs/images/screenrecord-quick-translate.gif';
 import { setLanguagePreference } from '@/lib/language-preference';
+import { qqGroupUrl } from '@/lib/shared';
 import styles from './home-experience.module.css';
 
 type Language = 'en' | 'zh';
@@ -46,7 +48,7 @@ type Demo = {
 
 const copy = {
   zh: {
-    navFeatures: '功能', navSetup: '快速开始', navPerformance: '性能', navDocs: '文档', github: 'GitHub',
+    navFeatures: '功能', navSetup: '快速开始', navPerformance: '性能', navDocs: '文档', github: 'GitHub', qqGroup: '加入 QQ 群',
     kicker: '跨平台桌面客户端 · 当前兼容 Windows',
     title: '翻译图片、文本和声音，也能润色、总结和纠错。',
     intro: '框选截图、选中文字或按下快捷键即可处理；观看没有中文字幕的海外视频或直播时，还能实时识别语音并显示翻译字幕。',
@@ -101,7 +103,7 @@ const copy = {
     ],
   },
   en: {
-    navFeatures: 'Features', navSetup: 'Get started', navPerformance: 'Performance', navDocs: 'Docs', github: 'GitHub',
+    navFeatures: 'Features', navSetup: 'Get started', navPerformance: 'Performance', navDocs: 'Docs', github: 'GitHub', qqGroup: 'Join QQ group',
     kicker: 'Cross-platform desktop tool · Windows currently supported',
     title: 'Translate images, text, and audio. Polish, summarize, and correct writing.',
     intro: 'Capture an image, select text, or use a shortcut. For videos, live streams, and online meetings without subtitles in a language you understand, EasyChat can recognize speech and display translated subtitles in real time.',
@@ -223,11 +225,12 @@ export function HomeExperience({ language }: { language: Language }) {
           </nav>
           <div className="hidden items-center gap-2 md:flex">
             <Link href={`/${alternateLanguage}`} onClick={() => setLanguagePreference(alternateLanguage)} className="inline-flex h-10 items-center gap-2 rounded-md px-3 text-sm text-[#bfd3ed] hover:bg-white/10 hover:text-white"><Image src={language === 'zh' ? '/us.png' : '/cn.png'} alt="" width={18} height={12} className="h-3 w-[18px] rounded-[2px] object-cover" />{language === 'zh' ? 'English' : '中文'}</Link>
+            {language === 'zh' && <a href={qqGroupUrl} target="_blank" rel="noreferrer" className="inline-flex h-10 items-center gap-2 rounded-md border border-[#426995] bg-[#16365f] px-3 text-sm font-medium text-white hover:bg-[#1e4d83]" aria-label={t.qqGroup}><MessagesSquare className="size-4" />{t.qqGroup}</a>}
             <a href="https://github.com/SwaggyMacro/EasyChat" target="_blank" rel="noreferrer" className="inline-flex h-10 items-center gap-2 rounded-md border border-[#426995] px-3 text-sm font-medium text-white hover:bg-white/10"><GitHubIcon className="size-4" />{t.github}</a>
           </div>
           <button type="button" className="grid size-11 place-items-center rounded-md text-white md:hidden" onClick={() => setMenuOpen((value) => !value)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>{menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}</button>
         </div>
-        {menuOpen && <div className="border-t border-[#244a78] bg-[#071a36] px-5 pb-5 md:hidden"><nav className="grid pt-3 text-sm text-white"><a href="#features" onClick={() => setMenuOpen(false)} className="flex min-h-11 items-center gap-3"><Sparkles className="size-4 text-blue-300" />{t.navFeatures}</a><a href="#setup" onClick={() => setMenuOpen(false)} className="flex min-h-11 items-center gap-3"><Settings2 className="size-4 text-blue-300" />{t.navSetup}</a><a href="#performance" onClick={() => setMenuOpen(false)} className="flex min-h-11 items-center gap-3"><Cpu className="size-4 text-blue-300" />{t.navPerformance}</a><Link href={`/${language}/docs`} className="flex min-h-11 items-center gap-3"><BookOpen className="size-4 text-blue-300" />{t.navDocs}</Link><div className="mt-2 flex gap-3"><Link href={`/${alternateLanguage}`} onClick={() => setLanguagePreference(alternateLanguage)} className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#426995] px-4"><Image src={language === 'zh' ? '/us.png' : '/cn.png'} alt="" width={18} height={12} className="h-3 w-[18px] rounded-[2px] object-cover" />{language === 'zh' ? 'English' : '中文'}</Link><a href="https://github.com/SwaggyMacro/EasyChat" className="inline-flex min-h-11 items-center rounded-md border border-[#426995] px-4">GitHub</a></div></nav></div>}
+        {menuOpen && <div className="border-t border-[#244a78] bg-[#071a36] px-5 pb-5 md:hidden"><nav className="grid pt-3 text-sm text-white"><a href="#features" onClick={() => setMenuOpen(false)} className="flex min-h-11 items-center gap-3"><Sparkles className="size-4 text-blue-300" />{t.navFeatures}</a><a href="#setup" onClick={() => setMenuOpen(false)} className="flex min-h-11 items-center gap-3"><Settings2 className="size-4 text-blue-300" />{t.navSetup}</a><a href="#performance" onClick={() => setMenuOpen(false)} className="flex min-h-11 items-center gap-3"><Cpu className="size-4 text-blue-300" />{t.navPerformance}</a><Link href={`/${language}/docs`} className="flex min-h-11 items-center gap-3"><BookOpen className="size-4 text-blue-300" />{t.navDocs}</Link><div className="mt-2 flex flex-wrap gap-3"><Link href={`/${alternateLanguage}`} onClick={() => setLanguagePreference(alternateLanguage)} className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#426995] px-4"><Image src={language === 'zh' ? '/us.png' : '/cn.png'} alt="" width={18} height={12} className="h-3 w-[18px] rounded-[2px] object-cover" />{language === 'zh' ? 'English' : '中文'}</Link>{language === 'zh' && <a href={qqGroupUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#426995] px-4" aria-label={t.qqGroup}><MessagesSquare className="size-4" />{t.qqGroup}</a>}<a href="https://github.com/SwaggyMacro/EasyChat" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-md border border-[#426995] px-4"><GitHubIcon className="size-4" />GitHub</a></div></nav></div>}
       </header>
 
       <main>
@@ -335,7 +338,7 @@ export function HomeExperience({ language }: { language: Language }) {
         <section className="bg-[#0d284d] py-16 text-white lg:py-20"><div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1.15fr_.85fr] lg:px-8"><div className="rounded-md border border-[#426995] bg-[#0c2344] p-6"><p className="flex items-center gap-2 text-sm font-semibold text-blue-200"><span className="size-2 rounded-full bg-blue-300" />{t.noticeTitle}</p><p className="mt-3 max-w-2xl text-sm leading-6 text-[#abc3df]">{t.notice}</p></div><div><p className="text-xs font-semibold text-blue-300">{t.resources}</p><div className="mt-3 divide-y divide-[#315582] border-y border-[#315582]">{t.resourceLinks.map((item) => { const ResourceIcon = item.icon; return <Link key={item.title} href={item.href} className="flex min-h-12 items-center justify-between text-sm font-semibold text-[#dbeafe] hover:text-blue-200"><span className="flex items-center gap-3"><ResourceIcon className="size-4" />{item.title}</span><ChevronRight className="size-4" /></Link>; })}</div></div></div></section>
       </main>
 
-      <footer className="border-t border-[#244a78] bg-[#071a36] text-[#abc3df]"><div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm sm:flex-row sm:items-center sm:justify-between lg:px-8"><div className="flex items-center gap-3 text-white"><span className="grid size-7 overflow-hidden rounded bg-white"><Image src="/easychat-logo.png" alt="" width={28} height={28} className="size-7 object-cover" /></span><span className="font-semibold">EasyChat</span></div><div className="flex flex-wrap gap-5"><Link href={`/${language}/docs`} className="hover:text-white">{t.navDocs}</Link><a href="https://github.com/SwaggyMacro/EasyChat" target="_blank" rel="noreferrer" className="hover:text-white">GitHub</a><Link href={`/${alternateLanguage}`} onClick={() => setLanguagePreference(alternateLanguage)} className="inline-flex items-center gap-2 hover:text-white"><Image src={language === 'zh' ? '/us.png' : '/cn.png'} alt="" width={18} height={12} className="h-3 w-[18px] rounded-[2px] object-cover" />{language === 'zh' ? 'English' : '中文'}</Link></div></div></footer>
+      <footer className="border-t border-[#244a78] bg-[#071a36] text-[#abc3df]"><div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 text-sm sm:flex-row sm:items-center sm:justify-between lg:px-8"><div className="flex items-center gap-3 text-white"><span className="grid size-7 overflow-hidden rounded bg-white"><Image src="/easychat-logo.png" alt="" width={28} height={28} className="size-7 object-cover" /></span><span className="font-semibold">EasyChat</span></div><div className="flex flex-wrap gap-5"><Link href={`/${language}/docs`} className="inline-flex items-center gap-2 hover:text-white"><BookOpen className="size-4" />{t.navDocs}</Link>{language === 'zh' && <a href={qqGroupUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-white" aria-label={t.qqGroup}><MessagesSquare className="size-4" />{t.qqGroup}</a>}<a href="https://github.com/SwaggyMacro/EasyChat" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-white"><GitHubIcon className="size-4" />GitHub</a><Link href={`/${alternateLanguage}`} onClick={() => setLanguagePreference(alternateLanguage)} className="inline-flex items-center gap-2 hover:text-white"><Image src={language === 'zh' ? '/us.png' : '/cn.png'} alt="" width={18} height={12} className="h-3 w-[18px] rounded-[2px] object-cover" />{language === 'zh' ? 'English' : '中文'}</Link></div></div></footer>
     </div>
   );
 }

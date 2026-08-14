@@ -1,6 +1,7 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import Image from 'next/image';
-import { appName, gitConfig, i18n, type SiteLanguage } from './shared';
+import { MessagesSquare } from 'lucide-react';
+import { appName, gitConfig, i18n, qqGroupUrl, type SiteLanguage } from './shared';
 import { LanguageSwitcher } from '@/components/language-switcher';
 
 export function baseOptions(language: SiteLanguage): BaseLayoutProps {
@@ -25,6 +26,16 @@ export function baseOptions(language: SiteLanguage): BaseLayoutProps {
       ),
     },
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
+    links: [
+      {
+        type: 'icon',
+        url: qqGroupUrl,
+        text: 'QQ Group',
+        label: '加入 QQ 群',
+        icon: <MessagesSquare className="size-4" />,
+        external: true,
+      },
+    ],
     i18n,
   };
 }
