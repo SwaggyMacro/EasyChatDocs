@@ -5,7 +5,7 @@ import { baseOptions } from '@/lib/layout.shared';
 export default async function Layout({ children, params }: LayoutProps<'/[lang]/docs'>) {
   const { lang } = await params;
   return (
-    <DocsLayout tree={source.getPageTree(lang)} {...baseOptions()}>
+    <DocsLayout tree={source.getPageTree(lang)} {...baseOptions(lang as 'en' | 'zh')}>
       {children}
     </DocsLayout>
   );

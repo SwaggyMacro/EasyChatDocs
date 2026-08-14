@@ -1,11 +1,12 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import Image from 'next/image';
-import { appName, gitConfig, i18n } from './shared';
+import { appName, gitConfig, i18n, type SiteLanguage } from './shared';
 import { LanguageSwitcher } from '@/components/language-switcher';
 
-export function baseOptions(): BaseLayoutProps {
+export function baseOptions(language: SiteLanguage): BaseLayoutProps {
   return {
     nav: {
+      url: `/${language}`,
       title: (
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-2">
