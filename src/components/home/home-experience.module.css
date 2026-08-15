@@ -69,8 +69,51 @@
   border-radius: 4px;
 }
 
+.translationWaveBar {
+  width: 3px;
+  height: var(--wave-height);
+  border-radius: 2px;
+  background: #60a5fa;
+  opacity: 0.5;
+  transform: scaleY(0.35);
+  transition: opacity 160ms ease-out, transform 160ms ease-out;
+}
+
+.translationWaveActive .translationWaveBar {
+  animation: translation-wave 680ms ease-in-out infinite alternate;
+  animation-delay: var(--wave-delay);
+  opacity: 1;
+}
+
+.voiceMessageBar {
+  width: 3px;
+  height: var(--voice-height);
+  border-radius: 2px;
+  background: #173b63;
+  opacity: 0.55;
+  transform: scaleY(0.55);
+}
+
+.voiceMessagePlaying .voiceMessageBar {
+  animation: voice-message-wave 560ms ease-in-out infinite alternate;
+  animation-delay: var(--voice-delay);
+  opacity: 1;
+}
+
+@keyframes voice-message-wave {
+  from { transform: scaleY(0.4); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes translation-wave {
+  from { transform: scaleY(0.3); }
+  to { transform: scaleY(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .memoryFill {
+  .memoryFill, .translationWaveBar, .voiceMessageBar {
     transition: none;
   }
+
+  .translationWaveActive .translationWaveBar, .voiceMessagePlaying .voiceMessageBar { animation: none; transform: scaleY(0.75); }
 }

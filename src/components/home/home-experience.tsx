@@ -16,11 +16,16 @@ import {
   Languages,
   Menu,
   MessagesSquare,
+  Mic,
+  MicSignal,
   MousePointer2,
+  Pause,
+  Play,
   ScanText,
   Settings2,
   Sparkles,
   SquarePen,
+  Volume2,
   X,
 } from 'lucide-react';
 
@@ -44,6 +49,7 @@ type Demo = {
   icon: Icon;
   media?: StaticImageData;
   video?: string;
+  preview?: 'input' | 'live-translation';
 };
 
 const copy = {
@@ -52,16 +58,17 @@ const copy = {
     kicker: '跨平台桌面客户端 · 当前兼容 Windows',
     title: '翻译图片、文本和声音，也能润色、总结和纠错。',
     intro: '框选截图、选中文字或按下快捷键即可处理；观看没有中文字幕的海外视频或直播时，还能实时识别语音并显示翻译字幕。',
-    heroFeatures: ['截图翻译', '划词翻译', '输入翻译', '润色总结', '语法纠错', '语音识别翻译'],
+    heroFeatures: ['截图翻译', '划词翻译', '输入翻译', '润色总结', '语法纠错', '语音识别翻译', '同声传译'],
     primary: '快速开始', secondary: '下载 EasyChat',
     ocrMetric: 'OCR 80+ 种语言', speechMetric: '语音识别 10 种语言',
     demoLabel: '选择一种用法', demoAction: '查看操作说明', scenario: '适合', requirement: '需要',
     demos: [
       { id: 'screenshot', title: '截图翻译', short: '框选屏幕', description: '框选网页、视频、图片或软件界面中的文字，完成 OCR 识别后直接显示译文，OCR 支持 80+ 种语言。', scenario: '无法复制的页面、视频字幕、游戏界面', requirement: '翻译源 + 对应语言的 OCR 模型', href: '/zh/docs/feature/screenshot-translation', icon: ScanText, media: screenshotDemo },
       { id: 'selection', title: '划词工具栏', short: '选中文字', description: '选中文字后，在原位置打开工具栏，进行翻译、纠错、润色、总结或解释。', scenario: '网页阅读、邮件、文档和外语学习', requirement: 'AI 大模型；普通翻译也可使用机器翻译', href: '/zh/docs/feature/selection', icon: MousePointer2, media: selectionDemo },
-      { id: 'input', title: '输入翻译', short: '输入后写回', description: '在任意应用的输入位置调用 EasyChat，用熟悉的语言输入，翻译完成后直接写回原来的输入框。', scenario: '跨国聊天、邮件、客服回复和游戏交流', requirement: '已配置的翻译服务', href: '/zh/docs/feature/input-translation', icon: SquarePen },
+      { id: 'input', title: '输入翻译', short: '输入后写回', description: '在任意应用的输入位置调用 EasyChat，用熟悉的语言输入，翻译完成后直接写回原来的输入框。', scenario: '跨国聊天、邮件、客服回复和游戏交流', requirement: '已配置的翻译服务', href: '/zh/docs/feature/input-translation', icon: SquarePen, preview: 'input' },
       { id: 'translate', title: '快捷翻译', short: '随时输入', description: '打开独立窗口输入文字，或读取当前选中的文本，查看译文、重点词和词典详情。', scenario: '临时查词、短句翻译和写作检查', requirement: '已配置的翻译源', href: '/zh/docs/feature/quick-translate', icon: Languages, media: translateDemo },
-      { id: 'speech', title: '实时字幕', short: '听系统声音', description: '识别电脑正在播放的音频，将原文和译文持续显示在悬浮字幕窗口中，支持 10 种语言识别。', scenario: '海外视频、直播、会议和网课', requirement: 'ASR 模型 + 翻译源', href: '/zh/docs/feature/asr', icon: AudioLines, video: '/videos/screenrecord-asr.mp4' },
+      { id: 'speech', title: '实时字幕', short: '听系统声音', description: '识别电脑正在播放的音频，将原文和译文持续显示在悬浮字幕窗口中，支持 10 种语言识别。', scenario: '海外视频、直播、会议和网课', requirement: 'ASR 模型 + 翻译源', href: '/zh/docs/feature/simultaneous-interpretation/asr', icon: AudioLines, video: '/videos/screenrecord-asr.mp4' },
+      { id: 'live-translation', title: '同声传译', short: '说话即翻译', description: '按下麦克风开始说话，实时识别语音并翻译成目标语言，再通过虚拟音频设备发送给会议、语音或直播软件。', scenario: '跨语言会议、语音聊天、演示与直播', requirement: 'ASR 模型 + 翻译源 + 虚拟音频驱动', href: '/zh/docs/feature/simultaneous-interpretation', icon: MicSignal, preview: 'live-translation' },
     ] as Demo[],
     setupKicker: '第一次使用', setupTitle: '三步完成基础设置', setupIntro: '先把一项功能跑通，再按需要下载 OCR 或语音模型。',
     steps: [
@@ -91,8 +98,8 @@ const copy = {
         { title: '划词工具栏', description: '在选中文本旁直接处理', href: '/zh/docs/feature/selection', icon: MousePointer2 },
       ] },
       { id: 'media', label: '音视频', icon: AudioLines, items: [
-        { title: '实时语音识别', description: '系统声音转双语字幕', href: '/zh/docs/feature/asr', icon: AudioLines },
-        { title: '同声传译', description: '翻译麦克风并输出音频', href: '/zh/docs/feature/simultaneous-interpretation', icon: Sparkles },
+        { title: '实时字幕', description: '系统声音转双语字幕', href: '/zh/docs/feature/simultaneous-interpretation/asr', icon: AudioLines },
+        { title: '同声传译', description: '翻译麦克风并输出音频', href: '/zh/docs/feature/simultaneous-interpretation', icon: MicSignal },
       ] },
     ],
     noticeTitle: '开始前先确认', notice: 'EasyChat 面向跨平台桌面使用，当前版本兼容 Windows。只有翻译服务需要自行申请 API Key；截图 OCR 与实时语音识别需要下载对应模型。',
@@ -107,16 +114,17 @@ const copy = {
     kicker: 'Cross-platform desktop tool · Windows currently supported',
     title: 'Translate images, text, and audio. Polish, summarize, and correct writing.',
     intro: 'Capture an image, select text, or use a shortcut. For videos, live streams, and online meetings without subtitles in a language you understand, EasyChat can recognize speech and display translated subtitles in real time.',
-    heroFeatures: ['Screenshot translation', 'Selected text', 'Input translation', 'Polish & summarize', 'Grammar correction', 'Speech translation'],
+    heroFeatures: ['Screenshot translation', 'Selected text', 'Input translation', 'Polish & summarize', 'Grammar correction', 'Speech translation', 'Live Translation'],
     primary: 'Quick start', secondary: 'Download EasyChat',
     ocrMetric: 'OCR in 80+ languages', speechMetric: 'Speech in 10 languages',
     demoLabel: 'Choose a feature', demoAction: 'Read the guide', scenario: 'Useful for', requirement: 'Requires',
     demos: [
       { id: 'screenshot', title: 'Screenshot translation', short: 'Capture an image', description: 'Capture text from a page, video, image, or application and show the translation after OCR, with support for 80+ languages.', scenario: 'Non-selectable text, subtitles, documents, and application interfaces', requirement: 'A translation service and the matching OCR model', href: '/en/docs/feature/screenshot-translation', icon: ScanText, media: screenshotDemo },
       { id: 'selection', title: 'Selection toolbar', short: 'Select text', description: 'Open a compact toolbar beside selected text to translate, correct, polish, summarize, or explain it.', scenario: 'Web pages, email, documents, and language learning', requirement: 'An AI model; machine translation is also available for standard translation', href: '/en/docs/feature/selection', icon: MousePointer2, media: selectionDemo },
-      { id: 'input', title: 'Typing translation', short: 'Translate and insert', description: 'Open EasyChat from any text field, write in your preferred language, and insert the translation back into the original application.', scenario: 'Cross-language messaging, email, customer support, and games', requirement: 'A configured translation service', href: '/en/docs/feature/input-translation', icon: SquarePen },
+      { id: 'input', title: 'Typing translation', short: 'Translate and insert', description: 'Open EasyChat from any text field, write in your preferred language, and insert the translation back into the original application.', scenario: 'Cross-language messaging, email, customer support, and games', requirement: 'A configured translation service', href: '/en/docs/feature/input-translation', icon: SquarePen, preview: 'input' },
       { id: 'translate', title: 'Quick translate', short: 'Translate on demand', description: 'Open a focused window for typed or selected text and review the translation, key terms, and dictionary details.', scenario: 'Quick lookups, short translations, and writing checks', requirement: 'A configured translation service', href: '/en/docs/feature/quick-translate', icon: Languages, media: translateDemo },
-      { id: 'speech', title: 'Live subtitles', short: 'Listen to audio', description: 'Recognize audio in 10 languages and display the original text and translation in a floating subtitle window.', scenario: 'Videos, live streams, online meetings, and classes', requirement: 'An ASR model and a translation service', href: '/en/docs/feature/asr', icon: AudioLines, video: '/videos/screenrecord-asr.mp4' },
+      { id: 'speech', title: 'Live subtitles', short: 'Listen to audio', description: 'Recognize audio in 10 languages and display the original text and translation in a floating subtitle window.', scenario: 'Videos, live streams, online meetings, and classes', requirement: 'An ASR model and a translation service', href: '/en/docs/feature/simultaneous-interpretation/asr', icon: AudioLines, video: '/videos/screenrecord-asr.mp4' },
+      { id: 'live-translation', title: 'Live Translation', short: 'Speak and translate', description: 'Start the microphone to recognize your speech, translate it in real time, and send the result through a virtual audio device to meetings, voice chats, or streams.', scenario: 'Cross-language meetings, voice chats, demos, and live streams', requirement: 'An ASR model, a translation service, and a virtual audio driver', href: '/en/docs/feature/simultaneous-interpretation', icon: MicSignal, preview: 'live-translation' },
     ] as Demo[],
     setupKicker: 'First use', setupTitle: 'Get ready in three steps', setupIntro: 'Start with one working feature, then add OCR or speech models when needed.',
     steps: [
@@ -137,7 +145,7 @@ const copy = {
     groups: [
       { id: 'image', label: 'Images', icon: ScanText, items: [{ title: 'Screenshot translation', description: 'Capture and translate a selected area', href: '/en/docs/feature/screenshot-translation', icon: ScanText }, { title: 'Screenshot OCR', description: 'Extract and work with text in images', href: '/en/docs/feature/image-ocr', icon: MousePointer2 }] },
       { id: 'text', label: 'Text', icon: SquarePen, items: [{ title: 'Typing translation', description: 'Translate and insert text into the active field', href: '/en/docs/feature/input-translation', icon: SquarePen }, { title: 'Quick translate', description: 'Translate typed or selected text', href: '/en/docs/feature/quick-translate', icon: Languages }, { title: 'Quick correction', description: 'Check grammar and review explanations', href: '/en/docs/feature/quick-correction', icon: Check }, { title: 'Selection toolbar', description: 'Work directly beside selected text', href: '/en/docs/feature/selection', icon: MousePointer2 }] },
-      { id: 'media', label: 'Audio & video', icon: AudioLines, items: [{ title: 'Live speech recognition', description: 'Turn system audio into translated subtitles', href: '/en/docs/feature/asr', icon: AudioLines }, { title: 'Simultaneous interpretation', description: 'Translate microphone input and output speech', href: '/en/docs/feature/simultaneous-interpretation', icon: Sparkles }] },
+      { id: 'media', label: 'Audio & video', icon: AudioLines, items: [{ title: 'Live subtitles', description: 'Turn system audio into translated subtitles', href: '/en/docs/feature/simultaneous-interpretation/asr', icon: AudioLines }, { title: 'Live Translation', description: 'Translate microphone input and output speech', href: '/en/docs/feature/simultaneous-interpretation', icon: MicSignal }] },
     ],
     noticeTitle: 'Before you start', notice: 'EasyChat is designed for cross-platform desktop use; the current release supports Windows. Only translation services require your own API keys. OCR and real-time speech recognition require local models.',
     resources: 'Documentation', resourceLinks: [{ title: 'Quick start', href: '/en/docs/quickstart', icon: ArrowRight }, { title: 'Page guide', href: '/en/docs/pages', icon: BookOpen }, { title: 'Settings reference', href: '/en/docs/settings', icon: Settings2 }],
@@ -173,10 +181,93 @@ function InputTranslationPreview({ language }: { language: Language }) {
   );
 }
 
+function LiveTranslationPreview({ language, onDelivered }: { language: Language; onDelivered: (delivered: boolean) => void }) {
+  const zh = language === 'zh';
+  const phrase = zh
+    ? { source: '我想把设计评审安排在周五上午。', translation: 'Could we move the design review to Friday morning?', incoming: 'Would Friday morning work for the design review?' }
+    : { source: 'I would like to move the design review to Friday morning.', translation: '我想把设计评审安排在周五上午。', incoming: '设计评审安排在周五上午可以吗？' };
+  const [isListening, setIsListening] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [delivered, setDelivered] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const isComplete = progress === 6;
+  const sourceText = phrase.source.slice(0, Math.ceil((progress / 6) * phrase.source.length));
+
+  useEffect(() => {
+    if (!isListening) return;
+
+    if (progress === 6) {
+      setIsListening(false);
+      setDelivered(true);
+      onDelivered(true);
+      return;
+    }
+
+    const timeout = window.setTimeout(() => setProgress((value) => Math.min(value + 1, 6)), 460);
+    return () => window.clearTimeout(timeout);
+  }, [isListening, progress, onDelivered]);
+
+  useEffect(() => {
+    if (!isPlaying) return;
+    const timeout = window.setTimeout(() => setIsPlaying(false), 4000);
+    return () => window.clearTimeout(timeout);
+  }, [isPlaying]);
+
+  function toggleListening() {
+    if (isComplete) {
+      setProgress(0);
+      setDelivered(false);
+      setIsPlaying(false);
+      onDelivered(false);
+    }
+    setIsListening((value) => !value || isComplete);
+  }
+
+  return (
+    <div className={`${styles.mediaEnter} absolute inset-0 grid place-items-center p-3 sm:p-8`}>
+      <div className="max-h-full w-full max-w-[650px] overflow-y-auto rounded-lg border border-[#315582] bg-[#0d2343] shadow-[0_24px_70px_rgba(0,0,0,.35)]">
+        <div className="flex items-center justify-between gap-3 border-b border-[#315582] px-4 py-3">
+          <div className="flex min-w-0 items-center gap-2 text-sm font-semibold text-white"><MicSignal className="size-4 shrink-0 text-blue-300" />{zh ? '同声传译' : 'Live Translation'}</div>
+          <span className={`inline-flex shrink-0 items-center gap-1.5 rounded border px-2 py-1 text-[11px] font-medium ${isListening ? 'border-rose-300/50 bg-rose-300/10 text-rose-200' : 'border-[#4d74a2] bg-[#132e53] text-blue-200'}`}><span className={`size-1.5 rounded-full ${isListening ? 'animate-pulse bg-rose-300' : 'bg-blue-300'}`} />{isListening ? (zh ? '正在聆听' : 'Listening') : (zh ? '已就绪' : 'Ready')}</span>
+        </div>
+
+        <div className="grid gap-4 p-4 sm:p-6">
+          <div className="rounded-md border border-[#426995] bg-[#071a36] p-3 sm:p-4">
+            <div className="flex items-center justify-between gap-3 border-b border-[#315582] pb-3"><div className="flex items-center gap-2"><span className="grid size-7 place-items-center rounded-full bg-[#43698f] text-[11px] font-semibold text-white">A</span><div><p className="text-xs font-semibold text-white">Alex</p><p className="text-[10px] text-[#8da9cc]">{zh ? '语音聊天' : 'Voice chat'}</p></div></div><span className="text-[10px] text-[#8da9cc]">09:41</span></div>
+            <div className="mt-4 grid gap-3" aria-live="polite">
+              <div className="max-w-[86%] rounded-md rounded-tl-none bg-[#173456] px-3 py-2.5 text-sm leading-5 text-[#dbeafe]"><p>{phrase.incoming}</p><span className="mt-1 block text-[10px] text-[#88a6c9]">09:41</span></div>
+              {delivered && <div className="ml-auto max-w-[90%] rounded-md rounded-tr-none bg-blue-400 px-3 py-2.5 text-[#071a36] shadow-[0_8px_20px_rgba(37,99,235,.2)]">
+                <div className="flex items-center gap-2">
+                  <button type="button" onClick={() => setIsPlaying((value) => !value)} aria-label={isPlaying ? (zh ? '暂停英文语音消息' : 'Pause translated voice message') : (zh ? '播放英文语音消息' : 'Play translated voice message')} className="grid size-8 shrink-0 place-items-center rounded-full bg-[#071a36] text-blue-200 transition-colors hover:bg-[#102a4d]">{isPlaying ? <Pause className="size-3.5" /> : <Play className="ml-0.5 size-3.5 fill-current" />}</button>
+                  <div className={`flex h-8 min-w-20 flex-1 items-center gap-0.5 ${isPlaying ? styles.voiceMessagePlaying : ''}`} aria-hidden="true">{[9, 15, 22, 12, 19, 25, 14, 20, 10].map((height, index) => <span key={index} className={styles.voiceMessageBar} style={{ '--voice-height': `${height}px`, '--voice-delay': `${index * -88}ms` } as CSSProperties} />)}</div>
+                  <span className="shrink-0 font-mono text-[11px] font-semibold tabular-nums">0:04</span>
+                </div>
+                <div className="mt-2 border-t border-[#173b63]/25 pt-2"><p className="text-sm font-medium leading-5">{phrase.translation}</p><span className="mt-1 flex items-center gap-1 text-[10px] text-[#173b63]"><Volume2 className="size-3" />{zh ? '中文 → 英文 · 已翻译发送' : 'English voice · translated and sent'}</span></div>
+              </div>}
+            </div>
+          </div>
+
+          <div className="rounded-md border border-blue-400/35 bg-blue-400/10 p-3 sm:p-4">
+            <div className="flex items-center justify-between gap-3"><span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-blue-200"><Mic className="size-3.5" />{zh ? '你正在说中文' : 'You are speaking English'}</span><span className="font-mono text-[11px] text-blue-300">{Math.round((progress / 6) * 100)}%</span></div>
+            <div className={`mt-2 flex h-8 items-center gap-1 ${isListening ? styles.translationWaveActive : ''}`} aria-hidden="true">{[14, 24, 36, 19, 31, 42, 25, 17, 33, 22, 38, 16, 28].map((height, index) => <span key={index} className={styles.translationWaveBar} style={{ '--wave-height': `${height}px`, '--wave-delay': `${index * -72}ms` } as CSSProperties} />)}</div>
+            <p className="mt-1 min-h-6 text-sm leading-6 text-white">{sourceText || (zh ? '点击麦克风，说出你的回复。' : 'Select the microphone and speak your reply.')}<span className={`ml-0.5 inline-block h-4 w-px bg-blue-200 align-middle ${isListening ? 'animate-pulse' : 'opacity-0'}`} /></p>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#315582] pt-4">
+            <span className="text-xs text-[#8da9cc]">{delivered ? (zh ? '英文语音已发送给 Alex' : 'Translated voice sent to Alex') : (zh ? '松开后自动翻译并发送' : 'Translation sends automatically when complete')}</span>
+            <button type="button" onClick={toggleListening} className={`inline-flex h-10 items-center gap-2 rounded-md px-4 text-sm font-semibold transition-colors ${isListening ? 'bg-rose-300 text-[#3a0a1d] hover:bg-rose-200' : 'bg-blue-400 text-[#071a36] hover:bg-blue-300'}`}><span className="grid size-5 place-items-center rounded-full bg-black/10">{isListening ? <Pause className="size-3.5" /> : <Mic className="size-3.5" />}</span>{isListening ? (zh ? '停止说话' : 'Stop speaking') : (isComplete ? (zh ? '再次发送语音' : 'Send another voice reply') : (zh ? '按住说话' : 'Hold to speak'))}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function HomeExperience({ language }: { language: Language }) {
   const t = copy[language];
   const alternateLanguage = language === 'zh' ? 'en' : 'zh';
   const [activeDemo, setActiveDemo] = useState(0);
+  const [liveTranslationDelivered, setLiveTranslationDelivered] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [activeMemory, setActiveMemory] = useState(0);
   const [activeGroup, setActiveGroup] = useState(0);
@@ -200,12 +291,17 @@ export function HomeExperience({ language }: { language: Language }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  function selectDemo(index: number) {
+    setActiveDemo(index);
+    setLiveTranslationDelivered(false);
+  }
+
   function handleDemoKeys(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
     event.preventDefault();
     const direction = event.key === 'ArrowRight' ? 1 : -1;
     const next = (index + direction + t.demos.length) % t.demos.length;
-    setActiveDemo(next);
+    selectDemo(next);
     tabRefs.current[next]?.focus();
   }
 
@@ -254,11 +350,11 @@ export function HomeExperience({ language }: { language: Language }) {
                 <div className="border-b border-[#315582] p-3 lg:border-b-0 lg:border-r">
                   <p className="px-3 pb-3 pt-2 text-[11px] font-semibold text-[#7fa6d5]">{t.demoLabel}</p>
                   <div role="tablist" aria-label={t.demoLabel} className="grid grid-cols-2 gap-2 lg:grid-cols-1">
-                    {t.demos.map((item, index) => { const DemoIcon = item.icon; const active = activeDemo === index; return <button key={item.id} ref={(node) => { tabRefs.current[index] = node; }} type="button" role="tab" aria-selected={active} onClick={() => setActiveDemo(index)} onKeyDown={(event) => handleDemoKeys(event, index)} className={`flex min-h-12 items-center gap-3 rounded-md px-3 text-left text-sm transition-colors ${active ? 'bg-blue-400 text-[#071a36]' : 'text-[#bfd3ed] hover:bg-white/7 hover:text-white'}`}><DemoIcon className="size-4 shrink-0" /><span><span className="block font-semibold">{item.title}</span><span className={`mt-0.5 hidden text-xs lg:block ${active ? 'text-[#16365f]' : 'text-[#7897bb]'}`}>{item.short}</span></span></button>; })}
+                    {t.demos.map((item, index) => { const DemoIcon = item.icon; const active = activeDemo === index; return <button key={item.id} ref={(node) => { tabRefs.current[index] = node; }} type="button" role="tab" aria-selected={active} onClick={() => selectDemo(index)} onKeyDown={(event) => handleDemoKeys(event, index)} className={`flex min-h-12 items-center gap-3 rounded-md px-3 text-left text-sm transition-colors ${active ? 'bg-blue-400 text-[#071a36]' : 'text-[#bfd3ed] hover:bg-white/7 hover:text-white'}`}><DemoIcon className="size-4 shrink-0" /><span><span className="block font-semibold">{item.title}</span><span className={`mt-0.5 hidden text-xs lg:block ${active ? 'text-[#16365f]' : 'text-[#7897bb]'}`}>{item.short}</span></span></button>; })}
                   </div>
                 </div>
-                <div className="relative min-h-[280px] overflow-hidden bg-[#051225] sm:min-h-[390px] lg:min-h-[500px]">
-                  {demo.video ? <video key={demo.id} src={demo.video} autoPlay loop muted playsInline controls preload="metadata" aria-label={`${demo.title}: ${demo.description}`} className={`${styles.mediaEnter} absolute inset-0 h-full w-full object-contain object-center`} /> : demo.media ? <Image key={demo.id} src={demo.media} alt={`${demo.title}: ${demo.description}`} fill unoptimized priority={activeDemo === 0} sizes="(max-width: 1024px) 100vw, 60vw" className={`${styles.mediaEnter} object-contain object-center`} /> : <InputTranslationPreview language={language} />}
+                <div className={`relative overflow-hidden bg-[#051225] ${demo.preview === 'live-translation' ? (liveTranslationDelivered ? 'min-h-[650px] sm:min-h-[660px]' : 'min-h-[530px] sm:min-h-[550px]') : 'min-h-[280px] sm:min-h-[390px] lg:min-h-[500px]'}`}>
+                  {demo.video ? <video key={demo.id} src={demo.video} autoPlay loop muted playsInline controls preload="metadata" aria-label={`${demo.title}: ${demo.description}`} className={`${styles.mediaEnter} absolute inset-0 h-full w-full object-contain object-center`} /> : demo.media ? <Image key={demo.id} src={demo.media} alt={`${demo.title}: ${demo.description}`} fill unoptimized priority={activeDemo === 0} sizes="(max-width: 1024px) 100vw, 60vw" className={`${styles.mediaEnter} object-contain object-center`} /> : demo.preview === 'live-translation' ? <LiveTranslationPreview key={demo.id} language={language} onDelivered={setLiveTranslationDelivered} /> : <InputTranslationPreview key={demo.id} language={language} />}
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-[linear-gradient(transparent,rgba(5,18,37,.72))]" />
                 </div>
                 <aside className="border-t border-[#315582] p-5 lg:border-l lg:border-t-0 lg:p-6">

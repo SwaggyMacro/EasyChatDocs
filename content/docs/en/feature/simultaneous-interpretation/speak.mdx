@@ -1,0 +1,54 @@
+---
+title: Live Interpretation
+description: Hold a shortcut and speak into your microphone. EasyChat recognizes and translates your speech, then outputs it through a virtual audio device. Ten recognition languages are supported.
+icon: MicSignal
+---
+
+import { Apple, Grid2x2 } from 'lucide-react';
+
+## Requirements
+
+Live Interpretation needs an ASR model and a virtual audio driver.
+
+- **ASR model:** Recognizes speech. Ten recognition languages are supported.
+- **Virtual audio driver:** Sends EasyChat's translated speech to a virtual microphone that other applications can use.
+
+### Install an ASR model
+
+Before using Live Interpretation, [install an ASR model](./asr#install-an-asr-model).
+
+### Install a virtual audio driver
+
+EasyChat uses [VB-CABLE](https://vb-audio.com/Cable/) as its virtual audio driver.
+
+#### Windows
+
+<Callout title="Windows driver" type="warning" icon={<Grid2x2 />}>
+  Download the Windows virtual audio driver: [VB-CABLE](https://download.vb-audio.com/Download_CABLE/VBCABLE_Driver_Pack45.zip)
+</Callout>
+
+#### macOS
+
+<Callout title="macOS driver" type="warning" icon={<Apple />}>
+  Download the macOS virtual audio driver: [VB-CABLE](https://download.vb-audio.com/Download_CABLE/VBCABLE_MAC.zip)
+</Callout>
+
+Extract the driver archive, open `VBCABLE_Setup_x64.exe`, then select **Install Driver**.
+
+![VB-CABLE installation](../../../images/vb-cable-install.png)
+
+## How to use it
+
+1. Add a **Live Interpretation** shortcut on the `Shortcuts` page.
+
+   ![Shortcut settings](../../../images/zh/hotkey-speak.png)
+
+2. Open `Live Translation` -> `Live Interpretation`, choose your settings, select the physical microphone you want to use, choose the language you will speak, then select **Start**.
+
+   ![Live Interpretation settings](../../../images/zh/speak-config.png)
+
+3. In the application where you need Live Interpretation, set the microphone input device to `CABLE Output`.
+
+   > Alternatively, set `CABLE Output` as the input device in your system's `Settings` -> `Sound` -> `Input` to use it in every application.
+
+Hold the shortcut while speaking. EasyChat recognizes your speech, translates it, and outputs the result through the virtual audio device.

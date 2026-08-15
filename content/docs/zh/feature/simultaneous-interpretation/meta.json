@@ -1,0 +1,5 @@
+{
+  "title": "同声传译",
+  "icon": "MicSignal",
+  "pages": ["asr", "speak"]
+}

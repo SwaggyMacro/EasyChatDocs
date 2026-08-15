@@ -1,0 +1,5 @@
+{
+  "title": "Live Translation",
+  "icon": "MicSignal",
+  "pages": ["asr", "speak"]
+}

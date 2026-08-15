@@ -1,0 +1,42 @@
+---
+title: 实时口译
+description: 支持实时口译功能，用户可通过按住热键对麦克风说话，EasyChat 将自动识别说话内容并翻译为目标语言通过虚拟音频设备输出，达到同声传译的效果，支持 10 种语言的识别。
+icon: MicSignal
+---
+
+import { Apple, Grid2x2 } from 'lucide-react';
+
+## 前提条件
+使用实时口译功能，需要您先安装 ASR 模型，并安装虚拟音频驱动。
+- ASR 模型: 实现语音识别的核心组件，支持 10 种语言的识别。
+- 虚拟音频驱动: 将 EasyChat 的翻译结果输出为虚拟麦克风设备，供其他软件使用，实现同声传译的效果。
+
+### 安装 ASR 模型
+在使用实时口译功能前，请确保已[安装 ASR 模型](./asr#安装-asr-模型)。
+
+### 安装虚拟音频驱动
+EasyChat 使用 [VB-CABLE](https://vb-audio.com/Cable/) 作为虚拟音频驱动。  
+
+#### Windows 用户
+<Callout title="Windows 驱动" type="warning" icon={<Grid2x2 />}>
+    Windows 虚拟驱动下载链接: [VB-CABLE](https://download.vb-audio.com/Download_CABLE/VBCABLE_Driver_Pack45.zip)  
+</Callout>
+#### macOS 用户
+<Callout title="macOS 驱动" type="warning" icon={<Apple />}>
+    macOS 虚拟驱动下载链接: [VB-CABLE](https://download.vb-audio.com/Download_CABLE/VBCABLE_MAC.zip)
+</Callout>
+
+下载驱动压缩包后解压缩，双击 `VBCABLE_Setup_x64.exe` 打开驱动安装程序，点击 `Install Driver` 按钮安装驱动即可。 
+![虚拟音频驱动安装](../../../images/vb-cable-install.png)
+
+## 使用方法
+1. 在 `热键` 页面中添加一个 `实时口译` 热键。
+![热键设置](../../../images/zh/hotkey-speak.png)
+
+2. 在 `同声传译`->`实时口译` 页面中选择好配置项，选择你的真实麦克风，以及你要说的语种（识别语言），点击 `开始` 按钮。
+![实时口译](../../../images/zh/speak-config.png)
+
+3. 在需要使用 `实时口译` 的软件中，将麦克风输入设备设置为 `CABLE Output`，即可使用实时口译功能。
+> 或者直接在系统的 `设置`->`声音`->`输入` 中将麦克风输入设备设置为 `CABLE Output`，即可在所有软件中使用实时口译功能。
+
+现在按住热键对麦克风说话，EasyChat 将自动识别说话内容并翻译为目标语言通过虚拟音频设备输出，达到同声传译的效果。

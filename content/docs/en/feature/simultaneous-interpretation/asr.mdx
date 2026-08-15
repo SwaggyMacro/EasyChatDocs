@@ -1,0 +1,46 @@
+---
+title: Audio Translation
+description: Recognize audio or video playing on your system and show the translation as subtitles. Ten recognition languages are supported.
+icon: Speech
+---
+
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Headphones, Presentation, Subtitles, Video } from 'lucide-react';
+
+## Install an ASR model
+
+Before using Audio Translation, [install an ASR model](./#install-an-asr-model).
+
+## How to use it
+
+Open `Live Translation` -> `Audio Translation`, choose the options you need, select **Start Recognition**, and enable the floating subtitle window. EasyChat recognizes audio and video playing on your system and displays the translated result as subtitles.
+
+> You can limit recognition to a particular process with the audio source option.
+
+![Start speech recognition](../../../images/zh/asr-start.png)
+![Speech recognition subtitles](../../../images/zh/asr-subtitle.png)
+
+<VideoPlayer
+  src="/videos/screenrecord-asr.mp4"
+  aria-label="Audio Translation example"
+/>
+
+## Use cases
+
+<Cards>
+  <Card title="Videos and live streams without subtitles" icon={<Video />}>
+    Watch foreign-language videos and live streams with translated subtitles generated from system audio, so you can follow news and entertainment as they happen.
+  </Card>
+
+  <Card title="International meetings and online classes" icon={<Presentation />}>
+    When using Zoom, Teams, or an overseas online course, select the meeting app process for focused, real-time translated subtitles without interference from other applications.
+  </Card>
+
+  <Card title="Podcasts and audio-only content" icon={<Headphones />}>
+    Turn podcasts, audiobooks, and recorded interviews into readable translated text, making audio-only content easier to follow.
+  </Card>
+
+  <Card title="Immersive listening practice" icon={<Subtitles />}>
+    Use floating subtitles as a real-time reference while watching original-language media or playing listening material, then compare pronunciation with meaning as you learn.
+  </Card>
+</Cards>
